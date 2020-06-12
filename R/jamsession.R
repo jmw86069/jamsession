@@ -105,7 +105,7 @@ save_object <- function
  save_date=jamba::getDate(),
  objects_path=jamsession_paths()$objects,
  object_notes_list="",
- do_file_info=TRUE,
+ do_file_info=FALSE,
  object_suffix=".RData",
  envir=globalenv(),
  verbose=TRUE,
