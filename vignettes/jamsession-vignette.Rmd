@@ -1,0 +1,201 @@
+---
+title: "Introduction to jamsession"
+author: "James M. Ward"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to jamsession}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse=TRUE, comment="#>", warning=FALSE);
+#library(jamsession);
+```
+
+# Introduction to jamsession
+
+The jamsession package and functions are motived primarily to make your
+(my) analysis workflows as efficient as possible. They start with the simple
+idea of storing certain information in a central location, partly because it
+makes it easier to find months or years later. This workflow also works well
+if more often than not, you have multiple R sessions open and active, since
+these functions add the project name to the R prompt.
+
+The R session and object files are versioned with the date, which has
+been an appropriate level of granularity, as well as being useful information
+when returning to work on past projects.
+
+That said, this package
+mainly focuses on three aspects of R analysis work:
+
+### R sessions
+
+This package stores and loads R sessions via .RData files from one
+stored location. These methods are useful are when analyzing
+data on different projects, where one may be asked to review
+data or results from projects years after the initial analysis.
+The methods here also store the R command history, which can be helpful
+when picking up where one left off.
+
+Saving or loading an R session also sets the R prompt to the project name,
+which is particularly helpful when multiple R sessions are open an active
+at once.
+
+### R objects
+
+This package also stored individual R objects in their own central location,
+in order to make it efficient to save and load objects in any R session,
+regardless the project or current working directory.
+
+### R functions
+
+This package allows a clean mechanism of using a helper R script with functions
+to load and reload for active analysis use. Doing so minimizes copy-paste into
+active consoles, including via Rstudio, but also keeps function code in their
+own environment instead of the global environment. When stored in the global
+environment, the function code is saved along with the R session, which may not
+be desirable especially when using a large set of helper functions.
+
+## Motivations
+
+Some motivations for this package:
+
+- make it efficient to find past R sessions and R objects by name, without
+the need to traverse down a nested file directory structure
+- make stored sessions and objects versioned by date, rather than using
+only the project or object name, and not needing to increment a version number
+every time a file is saved
+- provide a quick way to save and load R objects across different R sessions,
+to share useful objects in a structured, repeatable way
+- provide a clean method to load R functions from a separate file, to avoid
+having to copy-paste functions inside an R script, and to avoid R functions
+becoming part of the environment
+
+
+## Basic R session workflow
+
+When starting a new project in a new R console, it is helpful to initiate
+the environment with the project name, by saving a new session. By default,
+`session` will be defined during this step, and the R prompt will
+change to display the `session`.
+
+> Note that we add the argument `sessions_path=tempdir()` only for this
+vignette, in typical use this argument is not used, because R
+sessions are stored in one location.
+
+```{r, jamsession_1}
+library(jamsession);
+some_object <- data.frame(A=LETTERS[1:10]);
+save_jamsession("jamsessionVignette",
+   sessions_path=tempdir());
+print(session);
+```
+
+You may then do some work and wish to save your session:
+
+```{r, jamsession_2}
+x <- rnorm(90);
+y <- matrix(ncol=9, data=x);
+## Usually only run like this:
+# save_jamsession();
+
+## For this vignette we add sessions_path
+save_jamsession(sessions_path=tempdir());
+```
+
+You can later start R and pick up where you left off, which is simulated
+here by removing these objects, then loading the session:
+
+```{r, jamsession_3}
+rm(y);
+load_jamsession("jamsessionVignette",
+   sessions_path=tempdir());
+print(head(y));
+```
+
+## Saving R objects
+
+If you want to save an object, it is best to name it something specific before
+saving it. The call the `saveObject()` function with the name of the object:
+
+> Note that we add the argument `objects_path=tempdir()` only for this
+vignette, in typical use this argument is not used, because R
+objects are stored in one location.
+
+```{r, objects_1}
+jamsessionVignetteY <- t;
+save_object("jamsessionVignetteY",
+   objects_path=tempdir());
+```
+
+You can then load this object from any R console using `load_object()`, simulated
+here by removing the object, then loading it from the saved object file:
+
+```{r, objects_2}
+rm(jamsessionVignetteY);
+load_object("jamsessionVignetteY",
+   objects_path=tempdir());
+print(head(jamsessionVignetteY));
+```
+
+
+## Loading R functions
+
+R is a functional programming language, which makes it especially useful
+and powerful to write and re-use custom functions. Most R analysts have built
+up a long list of useful helper functions, either for re-use across all
+their projects, or written specifically per project. Either way, these
+functions need to be loaded into the R workspace, and very likely will need
+to be refreshed as the functions are updated over time.
+
+We demonstrate having a utility script by creating a temporary script, then
+using `refresh_functions()`.
+
+```{r, printfun_1}
+## Create a simple R script function fun()
+r_script <- "
+#' Simple print function
+#' 
+#' This function simply runs print()
+#'
+#' @param x any R object that can be printed.
+#' @param ... additional arguments are passed to print().
+#'
+#' @export
+printfun <- function(x, ...) {print(x, ...)};
+";
+
+## Save to a file in tempdir
+fn_file <- file.path(tempdir(),
+   "jamvignette_functions.R");
+## Save the R script to a file
+cat(r_script, file=fn_file);
+```
+
+Now the file has been saved under the name "jamsession". We can load this
+file with `refresh_functions()`.
+
+> For this vignette, we include argument `functions_path=tempdir()`,
+but this argument is usually not necessary, when functions are
+saved to a common path. Run `jamvignette_paths()` to see or set
+the expected paths.
+
+```{r, printfun_2}
+## Load the R script
+refresh_functions("jamvignette",
+   functions_path=tempdir());
+
+## search() shows the environments including jamvignette
+print(search());
+
+## find() to show where printfun is located
+find("printfun")
+```
+
+Lastly, we can run the `printfun()` function to show it works.
+
+```{r, printfun_3}
+printfun(LETTERS[1:10]);
+```

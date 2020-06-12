@@ -1,0 +1,21 @@
+destination: docs
+template:
+  params:
+    bootswatch: cosmo
+reference:
+- title: Jamsession sessions
+  desc: Management of R sessions
+  contents:
+  - has_concept("jamsession sessions")
+- title: Jamsession functions
+  desc: Management of R functions
+  contents:
+  - has_concept("jamsession functions")
+- title: Jamsession objects
+  desc: Management of R objects
+  contents:
+  - has_concept("jamsession objects")
+- title: Jamsession utilities
+  desc: Utility functions
+  contents:
+  - has_concept("jamsession utilities")

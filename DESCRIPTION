@@ -1,0 +1,22 @@
+Package: jamsession
+Title: Store and recall R sessions, objects, functions using a central location
+Version: 0.0.0.9000
+Authors@R: person(given="James M.", family="Ward",
+    email="jmw86069@gmail.com", role=c("aut", "cre"))
+Description: Store and re-ue R sessions and R objects in a central
+    common folder location, intended to help with task-switching,
+    archiving project results for long-term with rapid retrieval.
+    Helper functions to query, discovery, load R sessions or R objects.
+Depends: R (>= 3.5.1)
+Imports: jamba
+Suggests: knitr,
+    rmarkdown
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Remotes: github::jmw86069/jamba
+URL: http://github.com/jmw86069/jamsession
+BugReports: http://github.com/jmw86069/jamsession/issues
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
+VignetteBuilder: knitr
