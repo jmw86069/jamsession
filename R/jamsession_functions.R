@@ -222,7 +222,8 @@ refresh_functions <- function
       usethis::create_package(rtempdir,
          fields=list(Package=pkg_name,
             Title=rdesc,
-            Description=rdesc2),
+            Description=rdesc2,
+            Roxygen="list(markdown = TRUE)"),
          open=FALSE,
          rstudio=FALSE))
    for (ifn_file in fn_files) {

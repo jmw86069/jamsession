@@ -1,3 +1,10 @@
+# version 0.0.1.900
+
+`refresh_functions()` was updated to include this entry
+in the `DECRIPTION` file: `Roxygen=list(markdown=TRUE)`,
+which enables markdown syntax in the function help text.
+Verify with `print_pkg_description()`.
+
 # version 0.0.0.900
 
 ## initial version

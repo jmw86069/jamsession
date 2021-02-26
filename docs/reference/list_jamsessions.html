@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="List saved R sessions — list_jamsessions" />
 <meta property="og:description" content="List saved R sessions" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jamsession</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -102,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jmw86069/jamsession">
+  <a href="http://github.com/jmw86069/jamsession/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -121,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>List saved R sessions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jmw86069/jamsession/blob/master/R/jamsession_sessions.R'><code>R/jamsession_sessions.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/jmw86069/jamsession/blob/master/R/jamsession_sessions.R'><code>R/jamsession_sessions.R</code></a></small>
     <div class="hidden name"><code>list_jamsessions.Rd</code></div>
     </div>
 
@@ -129,14 +132,14 @@
     <p>List saved R sessions</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_jamsessions</span>(
-  <span class='kw'>sessions_path</span> <span class='kw'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span>()$<span class='no'>sessions</span>,
-  <span class='kw'>most_recent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>session_prefix</span> <span class='kw'>=</span> <span class='st'>"^inProgress_"</span>,
-  <span class='kw'>session_suffix</span> <span class='kw'>=</span> <span class='st'>"[.]RData$"</span>,
-  <span class='kw'>add_stats</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>list_jamsessions</span><span class='op'>(</span>
+  sessions_path <span class='op'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>sessions</span>,
+  most_recent <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  session_prefix <span class='op'>=</span> <span class='st'>"^inProgress_"</span>,
+  session_suffix <span class='op'>=</span> <span class='st'>"[.]RData$"</span>,
+  add_stats <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,7 +177,7 @@ versions.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list containing</p><dl class='dl-horizontal'>
+    <p>list containing</p><dl>
 <dt>session_df</dt><dd><p><code>data.frame</code> of R session information</p></dd>
 <dt>session</dt><dd><p><code>vector</code> of matching R session names</p></dd>
 
@@ -211,41 +214,84 @@ without the grep_patten search step.</p>
 <code><a href='show_session_versions.html'>show_session_versions</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>list_jamsessions</span>();</div><div class='output co'>#&gt; $session_df
-#&gt;                                   session save_date days_old file_size
-#&gt; LottyDah_12jun2020               LottyDah 12jun2020        0    1.1 kb
-#&gt; SARSinteractome_24mar2020 SARSinteractome 24mar2020       80      7 Mb
-#&gt; SARSinteractome_26mar2020 SARSinteractome 26mar2020       78     12 Mb
-#&gt; SARSinteractome_27mar2020 SARSinteractome 27mar2020       77     12 Mb
-#&gt; testOnly_03jun2020               testOnly 03jun2020        9     12 Mb
-#&gt;                                                session_path
-#&gt; LottyDah_12jun2020        /Users/wardjm/Projects/R-sessions
-#&gt; SARSinteractome_24mar2020 /Users/wardjm/Projects/R-sessions
-#&gt; SARSinteractome_26mar2020 /Users/wardjm/Projects/R-sessions
-#&gt; SARSinteractome_27mar2020 /Users/wardjm/Projects/R-sessions
-#&gt; testOnly_03jun2020        /Users/wardjm/Projects/R-sessions
-#&gt;                                                         session_file
-#&gt; LottyDah_12jun2020               inProgress_LottyDah_12jun2020.RData
-#&gt; SARSinteractome_24mar2020 inProgress_SARSinteractome_24mar2020.RData
-#&gt; SARSinteractome_26mar2020 inProgress_SARSinteractome_26mar2020.RData
-#&gt; SARSinteractome_27mar2020 inProgress_SARSinteractome_27mar2020.RData
-#&gt; testOnly_03jun2020               inProgress_testOnly_03jun2020.RData
+    <pre class="examples"><div class='input'><span class='fu'>list_jamsessions</span><span class='op'>(</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; $session_df
+#&gt;                                           session save_date days_old file_size
+#&gt; adam19-rnaseq_09may2019             adam19-rnaseq 09may2019      659    231 Mb
+#&gt; bushel-mito-nuc-SNP_07aug2020 bushel-mito-nuc-SNP 07aug2020      203    1.1 Mb
+#&gt; bushel-mito-nuc-SNP_12jan2021 bushel-mito-nuc-SNP 12jan2021       45    2.3 Mb
+#&gt; bushel-mito-nuc-SNP_13jan2021 bushel-mito-nuc-SNP 13jan2021       44    2.3 Mb
+#&gt; bushel-mito-nuc-SNP_22sep2020 bushel-mito-nuc-SNP 22sep2020      157    2.3 Mb
+#&gt; dietrichmemfeb2021_23feb2021   dietrichmemfeb2021 23feb2021        3    151 Mb
+#&gt; DMdata_07jan2021                           DMdata 07jan2021       50    622 Mb
+#&gt; DMdata_07oct2020                           DMdata 07oct2020      142    590 Mb
+#&gt; DMdata_11feb2021                           DMdata 11feb2021       15    625 Mb
+#&gt; DMdata_16dec2020                           DMdata 16dec2020       72    618 Mb
+#&gt; gokeyH1PD29may2019_27jan2021   gokeyH1PD29may2019 27jan2021       30     11 Mb
+#&gt; gokeyH1PD29may2019_28jan2021   gokeyH1PD29may2019 28jan2021       29     12 Mb
+#&gt; LottyDah_12jun2020                       LottyDah 12jun2020      259    1.1 kb
+#&gt; proteinatlas_24jul2020               proteinatlas 24jul2020      217     59 Mb
+#&gt; ritux-workflow_10aug2020           ritux-workflow 10aug2020      200     35 Mb
+#&gt; SARSinteractome_24mar2020         SARSinteractome 24mar2020      339      7 Mb
+#&gt; SARSinteractome_26mar2020         SARSinteractome 26mar2020      337     12 Mb
+#&gt; SARSinteractome_27mar2020         SARSinteractome 27mar2020      336     12 Mb
+#&gt; slicejam-testing_07jul2020       slicejam-testing 07jul2020      234    5.8 Mb
+#&gt; testOnly_03jun2020                       testOnly 03jun2020      268     12 Mb
+#&gt;                                                    session_path
+#&gt; adam19-rnaseq_09may2019       /Users/wardjm/Projects/R-sessions
+#&gt; bushel-mito-nuc-SNP_07aug2020 /Users/wardjm/Projects/R-sessions
+#&gt; bushel-mito-nuc-SNP_12jan2021 /Users/wardjm/Projects/R-sessions
+#&gt; bushel-mito-nuc-SNP_13jan2021 /Users/wardjm/Projects/R-sessions
+#&gt; bushel-mito-nuc-SNP_22sep2020 /Users/wardjm/Projects/R-sessions
+#&gt; dietrichmemfeb2021_23feb2021  /Users/wardjm/Projects/R-sessions
+#&gt; DMdata_07jan2021              /Users/wardjm/Projects/R-sessions
+#&gt; DMdata_07oct2020              /Users/wardjm/Projects/R-sessions
+#&gt; DMdata_11feb2021              /Users/wardjm/Projects/R-sessions
+#&gt; DMdata_16dec2020              /Users/wardjm/Projects/R-sessions
+#&gt; gokeyH1PD29may2019_27jan2021  /Users/wardjm/Projects/R-sessions
+#&gt; gokeyH1PD29may2019_28jan2021  /Users/wardjm/Projects/R-sessions
+#&gt; LottyDah_12jun2020            /Users/wardjm/Projects/R-sessions
+#&gt; proteinatlas_24jul2020        /Users/wardjm/Projects/R-sessions
+#&gt; ritux-workflow_10aug2020      /Users/wardjm/Projects/R-sessions
+#&gt; SARSinteractome_24mar2020     /Users/wardjm/Projects/R-sessions
+#&gt; SARSinteractome_26mar2020     /Users/wardjm/Projects/R-sessions
+#&gt; SARSinteractome_27mar2020     /Users/wardjm/Projects/R-sessions
+#&gt; slicejam-testing_07jul2020    /Users/wardjm/Projects/R-sessions
+#&gt; testOnly_03jun2020            /Users/wardjm/Projects/R-sessions
+#&gt;                                                                 session_file
+#&gt; adam19-rnaseq_09may2019             inProgress_adam19-rnaseq_09may2019.RData
+#&gt; bushel-mito-nuc-SNP_07aug2020 inProgress_bushel-mito-nuc-SNP_07aug2020.RData
+#&gt; bushel-mito-nuc-SNP_12jan2021 inProgress_bushel-mito-nuc-SNP_12jan2021.RData
+#&gt; bushel-mito-nuc-SNP_13jan2021 inProgress_bushel-mito-nuc-SNP_13jan2021.RData
+#&gt; bushel-mito-nuc-SNP_22sep2020 inProgress_bushel-mito-nuc-SNP_22sep2020.RData
+#&gt; dietrichmemfeb2021_23feb2021   inProgress_dietrichmemfeb2021_23feb2021.RData
+#&gt; DMdata_07jan2021                           inProgress_DMdata_07jan2021.RData
+#&gt; DMdata_07oct2020                           inProgress_DMdata_07oct2020.RData
+#&gt; DMdata_11feb2021                           inProgress_DMdata_11feb2021.RData
+#&gt; DMdata_16dec2020                           inProgress_DMdata_16dec2020.RData
+#&gt; gokeyH1PD29may2019_27jan2021   inProgress_gokeyH1PD29may2019_27jan2021.RData
+#&gt; gokeyH1PD29may2019_28jan2021   inProgress_gokeyH1PD29may2019_28jan2021.RData
+#&gt; LottyDah_12jun2020                       inProgress_LottyDah_12jun2020.RData
+#&gt; proteinatlas_24jul2020               inProgress_proteinatlas_24jul2020.RData
+#&gt; ritux-workflow_10aug2020           inProgress_ritux-workflow_10aug2020.RData
+#&gt; SARSinteractome_24mar2020         inProgress_SARSinteractome_24mar2020.RData
+#&gt; SARSinteractome_26mar2020         inProgress_SARSinteractome_26mar2020.RData
+#&gt; SARSinteractome_27mar2020         inProgress_SARSinteractome_27mar2020.RData
+#&gt; slicejam-testing_07jul2020       inProgress_slicejam-testing_07jul2020.RData
+#&gt; testOnly_03jun2020                       inProgress_testOnly_03jun2020.RData
 #&gt; 
 #&gt; $session
-#&gt; [1] "LottyDah"        "SARSinteractome" "testOnly"       
+#&gt;  [1] "adam19-rnaseq"       "bushel-mito-nuc-SNP" "dietrichmemfeb2021" 
+#&gt;  [4] "DMdata"              "gokeyH1PD29may2019"  "LottyDah"           
+#&gt;  [7] "proteinatlas"        "ritux-workflow"      "SARSinteractome"    
+#&gt; [10] "slicejam-testing"    "testOnly"           
 #&gt; </div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -256,7 +302,7 @@ without the grep_patten search step.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="load R object by name — load_object" />
 <meta property="og:description" content="load R object by name" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jamsession</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -102,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jmw86069/jamsession">
+  <a href="http://github.com/jmw86069/jamsession/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -121,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>load R object by name</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
     <div class="hidden name"><code>load_object.Rd</code></div>
     </div>
 
@@ -129,14 +132,14 @@
     <p>load R object by name</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_object</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>save_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>objects_path</span> <span class='kw'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span>()$<span class='no'>objects</span>,
-  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span>(),
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>load_object</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  save_date <span class='op'>=</span> <span class='cn'>NULL</span>,
+  objects_path <span class='op'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>objects</span>,
+  envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -206,33 +209,40 @@ environment, if needed.</p>
 <code><a href='save_object.html'>save_object</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>my_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>A</span><span class='kw'>=</span><span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>5</span>], <span class='kw'>a</span><span class='kw'>=</span><span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]);
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>my_df</span>);</div><div class='output co'>#&gt;   A a
+    <pre class="examples"><div class='input'><span class='va'>my_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>A<span class='op'>=</span><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>, a<span class='op'>=</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>;
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_df</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;   A a
 #&gt; 1 A a
 #&gt; 2 B b
 #&gt; 3 C c
 #&gt; 4 D d
 #&gt; 5 E e</div><div class='input'>
-<span class='fu'><a href='save_object.html'>save_object</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; <span class='error'>Error in save_object("my_df"): Object could not be saved.</span></div><div class='input'>
-<span class='fu'><a href='grep_objects.html'>grep_objects</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt;                              object save_date days_old file_size
-#&gt; my_df_12jun2020               my_df 12jun2020        0 160 bytes
-#&gt; my_df-my_df2_12jun2020 my_df-my_df2 12jun2020        0 212 bytes
+<span class='fu'><a href='save_object.html'>save_object</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='error'>Error in save_object("my_df"): Object could not be saved.</span></div><div class='input'>
+<span class='fu'><a href='grep_objects.html'>grep_objects</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;                              object save_date days_old file_size
+#&gt; my_df_12jun2020               my_df 12jun2020      259 160 bytes
+#&gt; my_df-my_df2_12jun2020 my_df-my_df2 12jun2020      259 212 bytes
 #&gt;                                             object_path
 #&gt; my_df_12jun2020        /Users/wardjm/Projects/R-objects
 #&gt; my_df-my_df2_12jun2020 /Users/wardjm/Projects/R-objects
 #&gt;                                         object_file
 #&gt; my_df_12jun2020               my_df_12jun2020.RData
 #&gt; my_df-my_df2_12jun2020 my_df-my_df2_12jun2020.RData</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>my_df</span>);
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>my_df</span><span class='op'>)</span>;
 
-<span class='fu'>load_object</span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; ##  (<span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded object: '</span><span style='color: #555555;'>my_df</span><span style='color: #00BBBB;'>'</span><span> </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>my_df</span>);</div><div class='output co'>#&gt;   A a
+<span class='fu'>load_object</span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to min; returning Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to min; returning Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; ##  (<span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded object: '</span><span style='color: #AFD7FF;'>my_df</span><span style='color: #00AFFF;'>'</span><span> </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_df</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;   A a
 #&gt; 1 A a
 #&gt; 2 B b
 #&gt; 3 C c
 #&gt; 4 D d
 #&gt; 5 E e</div><div class='input'>
-<span class='fu'>load_object</span>(<span class='fu'><a href='grep_objects.html'>grep_objects</a></span>(<span class='st'>"my_df"</span>))</div><div class='output co'>#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded object: '</span><span style='color: #555555;'>my_df</span><span style='color: #00BBBB;'>'</span><span> 
-#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded objects: </span><span style='color: #BB0000;'>my_df</span><span>,</span><span style='color: #555555;'>my_df2</span><span> </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>my_df</span>);</div><div class='output co'>#&gt;   A a
+<span class='fu'>load_object</span><span class='op'>(</span><span class='fu'><a href='grep_objects.html'>grep_objects</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded object: '</span><span style='color: #AFD7FF;'>my_df</span><span style='color: #00AFFF;'>'</span><span> 
+#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded objects: </span><span style='color: #FF8700;'>my_df</span><span>,</span><span style='color: #FFD787;'>my_df2</span><span> </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_df</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;   A a
 #&gt; 1 A a
 #&gt; 2 B b
 #&gt; 3 C c
@@ -240,65 +250,56 @@ environment, if needed.</p>
 #&gt; 5 E e</div><div class='input'>
 <span class='co'>######################################</span>
 <span class='co'># Load into a separate environment</span>
-<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>my_df</span>);</div><div class='output co'>#&gt; <span class='warning'>Warning: object 'my_df' not found</span></div><div class='input'><span class='no'>sep_env</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span>();
-<span class='fu'>load_object</span>(<span class='st'>"my_df"</span>, <span class='kw'>envir</span><span class='kw'>=</span><span class='no'>sep_env</span>);</div><div class='output co'>#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded object: '</span><span style='color: #555555;'>my_df</span><span style='color: #00BBBB;'>'</span><span> </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>my_df</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='warning'>Warning: object 'my_df' not found</span></div><div class='input'><span class='va'>sep_env</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span><span class='op'>(</span><span class='op'>)</span>;
+<span class='fu'>load_object</span><span class='op'>(</span><span class='st'>"my_df"</span>, envir<span class='op'>=</span><span class='va'>sep_env</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded object: '</span><span style='color: #AFD7FF;'>my_df</span><span style='color: #00AFFF;'>'</span><span> </div><div class='input'>
 <span class='co'># this object is not in the current workspace</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'>
 <span class='co'># you can use get() to see this object</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='st'>"my_df"</span>, <span class='kw'>envir</span><span class='kw'>=</span><span class='no'>sep_env</span>));</div><div class='output co'>#&gt;   A a
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span><span class='op'>(</span><span class='st'>"my_df"</span>, envir<span class='op'>=</span><span class='va'>sep_env</span><span class='op'>)</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;   A a
 #&gt; 1 A a
 #&gt; 2 B b
 #&gt; 3 C c
 #&gt; 4 D d
 #&gt; 5 E e</div><div class='input'>
 <span class='co'># or you can attach the environment to use objects inside</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/attach.html'>attach</a></span>(<span class='no'>sep_env</span>);</div><div class='output co'>#&gt; <span class='message'>The following object is masked _by_ .GlobalEnv:</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/attach.html'>attach</a></span><span class='op'>(</span><span class='va'>sep_env</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='message'>The following object is masked _by_ .GlobalEnv:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    my_df</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; [1] ".GlobalEnv" "sep_env"   </div><div class='input'>
+#&gt; <span class='message'>    my_df</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] ".GlobalEnv" "sep_env"   </div><div class='input'>
 <span class='co'># detach when no longer using this environment</span>
-<span class='fu'><a href='https://rdrr.io/r/base/detach.html'>detach</a></span>(<span class='st'>"sep_env"</span>);
-<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'>
+<span class='kw'><a href='https://rdrr.io/r/base/detach.html'>detach</a></span><span class='op'>(</span><span class='st'>"sep_env"</span><span class='op'>)</span>;
+<span class='fu'><a href='https://rdrr.io/r/utils/apropos.html'>find</a></span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] ".GlobalEnv"</div><div class='input'>
 <span class='co'>######################################</span>
 <span class='co'># example showing two objects stored together</span>
-<span class='no'>my_df2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>B</span><span class='kw'>=</span><span class='no'>LETTERS</span>[<span class='fl'>11</span>:<span class='fl'>15</span>], <span class='kw'>b</span><span class='kw'>=</span><span class='no'>letters</span>[<span class='fl'>11</span>:<span class='fl'>15</span>]);
-<span class='fu'>load_object</span>(<span class='st'>"my_df"</span>);</div><div class='output co'>#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded object: '</span><span style='color: #555555;'>my_df</span><span style='color: #00BBBB;'>'</span><span> </div><div class='input'><span class='fu'><a href='save_object.html'>save_object</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"my_df"</span>, <span class='st'>"my_df2"</span>));</div><div class='output co'>#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>save_objects(): </span><span style='color: #00BBBB;'>Objects saved:</span><span style='color: #555555;'>~/Projects/R-objects/my_df-my_df2_12jun2020.RData</span><span> 
-#&gt;                                                                                                                    filename
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData
-#&gt;                                                                    size isdir
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData 212 bytes FALSE
-#&gt;                                                               mode
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData  644
-#&gt;                                                                             mtime
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData 2020-06-12 15:47:20
-#&gt;                                                                             ctime
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData 2020-06-12 15:47:20
-#&gt;                                                                             atime
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData 2020-06-12 15:47:20
-#&gt;                                                               uid gid  uname
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData 505  20 wardjm
-#&gt;                                                               grname
-#&gt; /Users/wardjm/Projects/R-objects/my_df-my_df2_12jun2020.RData  staff</div><div class='input'>
-<span class='fu'><a href='grep_objects.html'>grep_objects</a></span>(<span class='st'>"my_df2"</span>);</div><div class='output co'>#&gt;                              object save_date days_old file_size
-#&gt; my_df-my_df2_12jun2020 my_df-my_df2 12jun2020        0 212 bytes
+<span class='va'>my_df2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>B<span class='op'>=</span><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>11</span><span class='op'>:</span><span class='fl'>15</span><span class='op'>]</span>, b<span class='op'>=</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>11</span><span class='op'>:</span><span class='fl'>15</span><span class='op'>]</span><span class='op'>)</span>;
+<span class='fu'>load_object</span><span class='op'>(</span><span class='st'>"my_df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded object: '</span><span style='color: #AFD7FF;'>my_df</span><span style='color: #00AFFF;'>'</span><span> </div><div class='input'><span class='fu'><a href='save_object.html'>save_object</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"my_df"</span>, <span class='st'>"my_df2"</span><span class='op'>)</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>save_objects(): </span><span style='color: #00AFFF;'>Objects saved:</span><span style='color: #AFD7FF;'>~/Projects/R-objects/my_df-my_df2_26feb2021.RData</span><span> </div><div class='input'>
+<span class='fu'><a href='grep_objects.html'>grep_objects</a></span><span class='op'>(</span><span class='st'>"my_df2"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;                              object save_date days_old file_size
+#&gt; my_df-my_df2_26feb2021 my_df-my_df2 26feb2021        0 212 bytes
 #&gt;                                             object_path
-#&gt; my_df-my_df2_12jun2020 /Users/wardjm/Projects/R-objects
+#&gt; my_df-my_df2_26feb2021 /Users/wardjm/Projects/R-objects
 #&gt;                                         object_file
-#&gt; my_df-my_df2_12jun2020 my_df-my_df2_12jun2020.RData</div><div class='input'><span class='no'>loaded</span> <span class='kw'>&lt;-</span> <span class='fu'>load_object</span>(<span class='fu'><a href='grep_objects.html'>grep_objects</a></span>(<span class='st'>"my_df2"</span>));</div><div class='output co'>#&gt; ##  (</span><span style='color: #00BBBB;font-weight: bold;'>15:47:20</span><span>) 12Jun2020:  </span><span style='color: #BB0000;'>load_object(): </span><span style='color: #00BBBB;'>Loaded objects: </span><span style='color: #BB0000;'>my_df</span><span>,</span><span style='color: #555555;'>my_df2</span><span> </div><div class='input'>
+#&gt; my_df-my_df2_26feb2021 my_df-my_df2_26feb2021.RData</div><div class='input'><span class='va'>loaded</span> <span class='op'>&lt;-</span> <span class='fu'>load_object</span><span class='op'>(</span><span class='fu'><a href='grep_objects.html'>grep_objects</a></span><span class='op'>(</span><span class='st'>"my_df2"</span><span class='op'>)</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; ##  (</span><span style='color: #00FFFF;font-weight: bold;'>11:51:44</span><span>) 26Feb2021:  </span><span style='color: #FF8700;'>load_object(): </span><span style='color: #00AFFF;'>Loaded objects: </span><span style='color: #FF8700;'>my_df</span><span>,</span><span style='color: #FFD787;'>my_df2</span><span> </div><div class='input'>
 <span class='co'># note that it loads two objects</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>loaded</span>);</div><div class='output co'>#&gt; [1] "my_df"  "my_df2"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>loaded</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] "my_df"  "my_df2"</div><div class='input'>
 
 </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -309,7 +310,7 @@ environment, if needed.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

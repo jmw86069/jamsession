@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="list saved R objects — list_objects" />
 <meta property="og:description" content="list saved R objects" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jamsession</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -102,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jmw86069/jamsession">
+  <a href="http://github.com/jmw86069/jamsession/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -121,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>list saved R objects</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
     <div class="hidden name"><code>list_objects.Rd</code></div>
     </div>
 
@@ -129,14 +132,14 @@
     <p>list saved R objects</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_objects</span>(
-  <span class='kw'>objects_path</span> <span class='kw'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span>()$<span class='no'>objects</span>,
-  <span class='kw'>most_recent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>object_prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>object_suffix</span> <span class='kw'>=</span> <span class='st'>"[.]RData$"</span>,
-  <span class='kw'>add_stats</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>list_objects</span><span class='op'>(</span>
+  objects_path <span class='op'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>objects</span>,
+  most_recent <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  object_prefix <span class='op'>=</span> <span class='st'>""</span>,
+  object_suffix <span class='op'>=</span> <span class='st'>"[.]RData$"</span>,
+  add_stats <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,7 +176,7 @@ stats for each object.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list containing</p><dl class='dl-horizontal'>
+    <p>list containing</p><dl>
 <dt>object_df</dt><dd><p><code>data.frame</code> of R objects</p></dd>
 <dt>object</dt><dd><p><code>vector</code> of matching R object names</p></dd>
 
@@ -210,282 +213,628 @@ without the grep_patten search step.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># by default the full list includes all past versions</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fu'>list_objects</span>());</div><div class='output co'>#&gt; $object_df
-#&gt;                                                          object save_date
-#&gt; arris_df_01jun2020                                     arris_df 01jun2020
-#&gt; arris_df_02jun2020                                     arris_df 02jun2020
-#&gt; arris_df_03jun2020                                     arris_df 03jun2020
-#&gt; arris_df_04jun2020                                     arris_df 04jun2020
-#&gt; arris_df_05jun2020                                     arris_df 05jun2020
-#&gt; arris_df_05may2020                                     arris_df 05may2020
-#&gt; arris_df_06jun2020                                     arris_df 06jun2020
-#&gt; arris_df_06may2020                                     arris_df 06may2020
-#&gt; arris_df_07jun2020                                     arris_df 07jun2020
-#&gt; arris_df_07may2020                                     arris_df 07may2020
-#&gt; arris_df_08jun2020                                     arris_df 08jun2020
-#&gt; arris_df_08may2020                                     arris_df 08may2020
-#&gt; arris_df_09jun2020                                     arris_df 09jun2020
-#&gt; arris_df_09may2020                                     arris_df 09may2020
-#&gt; arris_df_10jun2020                                     arris_df 10jun2020
-#&gt; arris_df_10may2020                                     arris_df 10may2020
-#&gt; arris_df_11jun2020                                     arris_df 11jun2020
-#&gt; arris_df_11may2020                                     arris_df 11may2020
-#&gt; arris_df_12may2020                                     arris_df 12may2020
-#&gt; arris_df_13may2020                                     arris_df 13may2020
-#&gt; arris_df_14may2020                                     arris_df 14may2020
-#&gt; arris_df_15may2020                                     arris_df 15may2020
-#&gt; arris_df_16may2020                                     arris_df 16may2020
-#&gt; arris_df_17may2020                                     arris_df 17may2020
-#&gt; arris_df_18may2020                                     arris_df 18may2020
-#&gt; arris_df_19may2020                                     arris_df 19may2020
-#&gt; arris_df_20may2020                                     arris_df 20may2020
-#&gt; arris_df_21may2020                                     arris_df 21may2020
-#&gt; arris_df_22may2020                                     arris_df 22may2020
-#&gt; arris_df_23may2020                                     arris_df 23may2020
-#&gt; arris_df_24may2020                                     arris_df 24may2020
-#&gt; arris_df_25may2020                                     arris_df 25may2020
-#&gt; arris_df_26may2020                                     arris_df 26may2020
-#&gt; arris_df_27may2020                                     arris_df 27may2020
-#&gt; arris_df_28may2020                                     arris_df 28may2020
-#&gt; arris_df_29may2020                                     arris_df 29may2020
-#&gt; arris_df_30may2020                                     arris_df 30may2020
-#&gt; arris_df_31may2020                                     arris_df 31may2020
-#&gt; arris_df-irow_11jun2020                           arris_df-irow 11jun2020
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l 10apr2020
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames 20mar2020
-#&gt; dietrichTxis_20mar2020                             dietrichTxis 20mar2020
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots 12apr2020
-#&gt; my_df_12jun2020                                           my_df 12jun2020
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2 12jun2020
-#&gt;                                      days_old file_size
-#&gt; arris_df_01jun2020                         11    184 kb
-#&gt; arris_df_02jun2020                         10    190 kb
-#&gt; arris_df_03jun2020                          9    200 kb
-#&gt; arris_df_04jun2020                          8    206 kb
-#&gt; arris_df_05jun2020                          7    213 kb
-#&gt; arris_df_05may2020                         38    6.3 kb
-#&gt; arris_df_06jun2020                          6    236 kb
-#&gt; arris_df_06may2020                         37     18 kb
-#&gt; arris_df_07jun2020                          5    257 kb
-#&gt; arris_df_07may2020                         36     24 kb
-#&gt; arris_df_08jun2020                          4    276 kb
-#&gt; arris_df_08may2020                         35     31 kb
-#&gt; arris_df_09jun2020                          3    282 kb
-#&gt; arris_df_09may2020                         34     41 kb
-#&gt; arris_df_10jun2020                          2    294 kb
-#&gt; arris_df_10may2020                         33     48 kb
-#&gt; arris_df_11jun2020                          1    298 kb
-#&gt; arris_df_11may2020                         32     60 kb
-#&gt; arris_df_12may2020                         31     64 kb
-#&gt; arris_df_13may2020                         30     69 kb
-#&gt; arris_df_14may2020                         29     76 kb
-#&gt; arris_df_15may2020                         28     83 kb
-#&gt; arris_df_16may2020                         27     92 kb
-#&gt; arris_df_17may2020                         26    100 kb
-#&gt; arris_df_18may2020                         25    103 kb
-#&gt; arris_df_19may2020                         24    109 kb
-#&gt; arris_df_20may2020                         23    113 kb
-#&gt; arris_df_21may2020                         22    117 kb
-#&gt; arris_df_22may2020                         21    122 kb
-#&gt; arris_df_23may2020                         20    127 kb
-#&gt; arris_df_24may2020                         19    135 kb
-#&gt; arris_df_25may2020                         18    143 kb
-#&gt; arris_df_26may2020                         17    151 kb
-#&gt; arris_df_27may2020                         16    159 kb
-#&gt; arris_df_28may2020                         15    161 kb
-#&gt; arris_df_29may2020                         14    162 kb
-#&gt; arris_df_30may2020                         13    170 kb
-#&gt; arris_df_31may2020                         12    183 kb
-#&gt; arris_df-irow_11jun2020                     1    294 kb
-#&gt; dietrich_track_lines_l_10apr2020           63      1 kb
-#&gt; dietrichTxiNames_20mar2020                 84 345 bytes
-#&gt; dietrichTxis_20mar2020                     84     51 Mb
-#&gt; mem_dmlupus_affysoma_plots_12apr2020       61    299 kb
-#&gt; my_df_12jun2020                             0 160 bytes
-#&gt; my_df-my_df2_12jun2020                      0 212 bytes
-#&gt;                                                           object_path
-#&gt; arris_df_01jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_02jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_03jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_04jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_05jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_05may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_06jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_06may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_07jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_07may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_08jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_08may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_09jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_09may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_10jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_10may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_11jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_11may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_12may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_13may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_14may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_15may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_16may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_17may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_18may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_19may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_20may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_21may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_22may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_23may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_24may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_25may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_26may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_27may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_28may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_29may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_30may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df_31may2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df-irow_11jun2020              /Users/wardjm/Projects/R-objects
-#&gt; dietrich_track_lines_l_10apr2020     /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxiNames_20mar2020           /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxis_20mar2020               /Users/wardjm/Projects/R-objects
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 /Users/wardjm/Projects/R-objects
-#&gt; my_df_12jun2020                      /Users/wardjm/Projects/R-objects
-#&gt; my_df-my_df2_12jun2020               /Users/wardjm/Projects/R-objects
-#&gt;                                                                     object_file
-#&gt; arris_df_01jun2020                                     arris_df_01jun2020.RData
-#&gt; arris_df_02jun2020                                     arris_df_02jun2020.RData
-#&gt; arris_df_03jun2020                                     arris_df_03jun2020.RData
-#&gt; arris_df_04jun2020                                     arris_df_04jun2020.RData
-#&gt; arris_df_05jun2020                                     arris_df_05jun2020.RData
-#&gt; arris_df_05may2020                                     arris_df_05may2020.RData
-#&gt; arris_df_06jun2020                                     arris_df_06jun2020.RData
-#&gt; arris_df_06may2020                                     arris_df_06may2020.RData
-#&gt; arris_df_07jun2020                                     arris_df_07jun2020.RData
-#&gt; arris_df_07may2020                                     arris_df_07may2020.RData
-#&gt; arris_df_08jun2020                                     arris_df_08jun2020.RData
-#&gt; arris_df_08may2020                                     arris_df_08may2020.RData
-#&gt; arris_df_09jun2020                                     arris_df_09jun2020.RData
-#&gt; arris_df_09may2020                                     arris_df_09may2020.RData
-#&gt; arris_df_10jun2020                                     arris_df_10jun2020.RData
-#&gt; arris_df_10may2020                                     arris_df_10may2020.RData
-#&gt; arris_df_11jun2020                                     arris_df_11jun2020.RData
-#&gt; arris_df_11may2020                                     arris_df_11may2020.RData
-#&gt; arris_df_12may2020                                     arris_df_12may2020.RData
-#&gt; arris_df_13may2020                                     arris_df_13may2020.RData
-#&gt; arris_df_14may2020                                     arris_df_14may2020.RData
-#&gt; arris_df_15may2020                                     arris_df_15may2020.RData
-#&gt; arris_df_16may2020                                     arris_df_16may2020.RData
-#&gt; arris_df_17may2020                                     arris_df_17may2020.RData
-#&gt; arris_df_18may2020                                     arris_df_18may2020.RData
-#&gt; arris_df_19may2020                                     arris_df_19may2020.RData
-#&gt; arris_df_20may2020                                     arris_df_20may2020.RData
-#&gt; arris_df_21may2020                                     arris_df_21may2020.RData
-#&gt; arris_df_22may2020                                     arris_df_22may2020.RData
-#&gt; arris_df_23may2020                                     arris_df_23may2020.RData
-#&gt; arris_df_24may2020                                     arris_df_24may2020.RData
-#&gt; arris_df_25may2020                                     arris_df_25may2020.RData
-#&gt; arris_df_26may2020                                     arris_df_26may2020.RData
-#&gt; arris_df_27may2020                                     arris_df_27may2020.RData
-#&gt; arris_df_28may2020                                     arris_df_28may2020.RData
-#&gt; arris_df_29may2020                                     arris_df_29may2020.RData
-#&gt; arris_df_30may2020                                     arris_df_30may2020.RData
-#&gt; arris_df_31may2020                                     arris_df_31may2020.RData
-#&gt; arris_df-irow_11jun2020                           arris_df-irow_11jun2020.RData
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l_10apr2020.RData
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames_20mar2020.RData
-#&gt; dietrichTxis_20mar2020                             dietrichTxis_20mar2020.RData
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots_12apr2020.RData
-#&gt; my_df_12jun2020                                           my_df_12jun2020.RData
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2_12jun2020.RData
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'>list_objects</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; $object_df
+#&gt;                                                                object save_date
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2 07jan2021
+#&gt; arris_df_01jul2020                                           arris_df 01jul2020
+#&gt; arris_df_01jun2020                                           arris_df 01jun2020
+#&gt; arris_df_02jul2020                                           arris_df 02jul2020
+#&gt; arris_df_02jun2020                                           arris_df 02jun2020
+#&gt; arris_df_03jul2020                                           arris_df 03jul2020
+#&gt; arris_df_03jun2020                                           arris_df 03jun2020
+#&gt; arris_df_04jul2020                                           arris_df 04jul2020
+#&gt; arris_df_04jun2020                                           arris_df 04jun2020
+#&gt; arris_df_05jul2020                                           arris_df 05jul2020
+#&gt; arris_df_05jun2020                                           arris_df 05jun2020
+#&gt; arris_df_05may2020                                           arris_df 05may2020
+#&gt; arris_df_06jul2020                                           arris_df 06jul2020
+#&gt; arris_df_06jun2020                                           arris_df 06jun2020
+#&gt; arris_df_06may2020                                           arris_df 06may2020
+#&gt; arris_df_07jul2020                                           arris_df 07jul2020
+#&gt; arris_df_07jun2020                                           arris_df 07jun2020
+#&gt; arris_df_07may2020                                           arris_df 07may2020
+#&gt; arris_df_08jul2020                                           arris_df 08jul2020
+#&gt; arris_df_08jun2020                                           arris_df 08jun2020
+#&gt; arris_df_08may2020                                           arris_df 08may2020
+#&gt; arris_df_09jul2020                                           arris_df 09jul2020
+#&gt; arris_df_09jun2020                                           arris_df 09jun2020
+#&gt; arris_df_09may2020                                           arris_df 09may2020
+#&gt; arris_df_10jul2020                                           arris_df 10jul2020
+#&gt; arris_df_10jun2020                                           arris_df 10jun2020
+#&gt; arris_df_10may2020                                           arris_df 10may2020
+#&gt; arris_df_11jul2020                                           arris_df 11jul2020
+#&gt; arris_df_11jun2020                                           arris_df 11jun2020
+#&gt; arris_df_11may2020                                           arris_df 11may2020
+#&gt; arris_df_12jul2020                                           arris_df 12jul2020
+#&gt; arris_df_12jun2020                                           arris_df 12jun2020
+#&gt; arris_df_12may2020                                           arris_df 12may2020
+#&gt; arris_df_13jul2020                                           arris_df 13jul2020
+#&gt; arris_df_13jun2020                                           arris_df 13jun2020
+#&gt; arris_df_13may2020                                           arris_df 13may2020
+#&gt; arris_df_14jul2020                                           arris_df 14jul2020
+#&gt; arris_df_14jun2020                                           arris_df 14jun2020
+#&gt; arris_df_14may2020                                           arris_df 14may2020
+#&gt; arris_df_15jul2020                                           arris_df 15jul2020
+#&gt; arris_df_15jun2020                                           arris_df 15jun2020
+#&gt; arris_df_15may2020                                           arris_df 15may2020
+#&gt; arris_df_16jul2020                                           arris_df 16jul2020
+#&gt; arris_df_16jun2020                                           arris_df 16jun2020
+#&gt; arris_df_16may2020                                           arris_df 16may2020
+#&gt; arris_df_17jul2020                                           arris_df 17jul2020
+#&gt; arris_df_17jun2020                                           arris_df 17jun2020
+#&gt; arris_df_17may2020                                           arris_df 17may2020
+#&gt; arris_df_18jul2020                                           arris_df 18jul2020
+#&gt; arris_df_18jun2020                                           arris_df 18jun2020
+#&gt; arris_df_18may2020                                           arris_df 18may2020
+#&gt; arris_df_19jul2020                                           arris_df 19jul2020
+#&gt; arris_df_19jun2020                                           arris_df 19jun2020
+#&gt; arris_df_19may2020                                           arris_df 19may2020
+#&gt; arris_df_20jul2020                                           arris_df 20jul2020
+#&gt; arris_df_20jun2020                                           arris_df 20jun2020
+#&gt; arris_df_20may2020                                           arris_df 20may2020
+#&gt; arris_df_21jul2020                                           arris_df 21jul2020
+#&gt; arris_df_21jun2020                                           arris_df 21jun2020
+#&gt; arris_df_21may2020                                           arris_df 21may2020
+#&gt; arris_df_22jul2020                                           arris_df 22jul2020
+#&gt; arris_df_22jun2020                                           arris_df 22jun2020
+#&gt; arris_df_22may2020                                           arris_df 22may2020
+#&gt; arris_df_23jul2020                                           arris_df 23jul2020
+#&gt; arris_df_23jun2020                                           arris_df 23jun2020
+#&gt; arris_df_23may2020                                           arris_df 23may2020
+#&gt; arris_df_24jul2020                                           arris_df 24jul2020
+#&gt; arris_df_24jun2020                                           arris_df 24jun2020
+#&gt; arris_df_24may2020                                           arris_df 24may2020
+#&gt; arris_df_25jul2020                                           arris_df 25jul2020
+#&gt; arris_df_25jun2020                                           arris_df 25jun2020
+#&gt; arris_df_25may2020                                           arris_df 25may2020
+#&gt; arris_df_26jul2020                                           arris_df 26jul2020
+#&gt; arris_df_26jun2020                                           arris_df 26jun2020
+#&gt; arris_df_26may2020                                           arris_df 26may2020
+#&gt; arris_df_27jul2020                                           arris_df 27jul2020
+#&gt; arris_df_27jun2020                                           arris_df 27jun2020
+#&gt; arris_df_27may2020                                           arris_df 27may2020
+#&gt; arris_df_28jun2020                                           arris_df 28jun2020
+#&gt; arris_df_28may2020                                           arris_df 28may2020
+#&gt; arris_df_29jun2020                                           arris_df 29jun2020
+#&gt; arris_df_29may2020                                           arris_df 29may2020
+#&gt; arris_df_30jun2020                                           arris_df 30jun2020
+#&gt; arris_df_30may2020                                           arris_df 30may2020
+#&gt; arris_df_31may2020                                           arris_df 31may2020
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow 11jun2020
+#&gt; count_test_24nov2020                                       count_test 24nov2020
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l 10apr2020
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames 20mar2020
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis 20mar2020
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list 11aug2020
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list 11aug2020
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df 12aug2020
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways 30jul2020
+#&gt; gokey_data_06jul2020                                       gokey_data 06jul2020
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k 11feb2021
+#&gt; jam_divergent_17nov2020                                 jam_divergent 17nov2020
+#&gt; jam_linear_17nov2020                                       jam_linear 17nov2020
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots 12apr2020
+#&gt; my_df_12jun2020                                                 my_df 12jun2020
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2 12jun2020
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11 23jul2020
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11 23jul2020
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11 23jul2020
+#&gt;                                         days_old file_size
+#&gt; all_samples_sle2_07jan2021                    50 314 bytes
+#&gt; arris_df_01jul2020                           240    546 kb
+#&gt; arris_df_01jun2020                           270    184 kb
+#&gt; arris_df_02jul2020                           239    560 kb
+#&gt; arris_df_02jun2020                           269    190 kb
+#&gt; arris_df_03jul2020                           238    588 kb
+#&gt; arris_df_03jun2020                           268    200 kb
+#&gt; arris_df_04jul2020                           237    596 kb
+#&gt; arris_df_04jun2020                           267    206 kb
+#&gt; arris_df_05jul2020                           236    616 kb
+#&gt; arris_df_05jun2020                           266    213 kb
+#&gt; arris_df_05may2020                           297    6.3 kb
+#&gt; arris_df_06jul2020                           235    631 kb
+#&gt; arris_df_06jun2020                           265    236 kb
+#&gt; arris_df_06may2020                           296     18 kb
+#&gt; arris_df_07jul2020                           234    637 kb
+#&gt; arris_df_07jun2020                           264    257 kb
+#&gt; arris_df_07may2020                           295     24 kb
+#&gt; arris_df_08jul2020                           233    645 kb
+#&gt; arris_df_08jun2020                           263    276 kb
+#&gt; arris_df_08may2020                           294     31 kb
+#&gt; arris_df_09jul2020                           232    659 kb
+#&gt; arris_df_09jun2020                           262    282 kb
+#&gt; arris_df_09may2020                           293     41 kb
+#&gt; arris_df_10jul2020                           231    664 kb
+#&gt; arris_df_10jun2020                           261    294 kb
+#&gt; arris_df_10may2020                           292     48 kb
+#&gt; arris_df_11jul2020                           230    685 kb
+#&gt; arris_df_11jun2020                           260    298 kb
+#&gt; arris_df_11may2020                           291     60 kb
+#&gt; arris_df_12jul2020                           229    699 kb
+#&gt; arris_df_12jun2020                           259    301 kb
+#&gt; arris_df_12may2020                           290     64 kb
+#&gt; arris_df_13jul2020                           228    716 kb
+#&gt; arris_df_13jun2020                           258    310 kb
+#&gt; arris_df_13may2020                           289     69 kb
+#&gt; arris_df_14jul2020                           227    720 kb
+#&gt; arris_df_14jun2020                           257    321 kb
+#&gt; arris_df_14may2020                           288     76 kb
+#&gt; arris_df_15jul2020                           226    733 kb
+#&gt; arris_df_15jun2020                           256    326 kb
+#&gt; arris_df_15may2020                           287     83 kb
+#&gt; arris_df_16jul2020                           225    743 kb
+#&gt; arris_df_16jun2020                           255    342 kb
+#&gt; arris_df_16may2020                           286     92 kb
+#&gt; arris_df_17jul2020                           224    746 kb
+#&gt; arris_df_17jun2020                           254    354 kb
+#&gt; arris_df_17may2020                           285    100 kb
+#&gt; arris_df_18jul2020                           223    763 kb
+#&gt; arris_df_18jun2020                           253    359 kb
+#&gt; arris_df_18may2020                           284    103 kb
+#&gt; arris_df_19jul2020                           222    769 kb
+#&gt; arris_df_19jun2020                           252    378 kb
+#&gt; arris_df_19may2020                           283    109 kb
+#&gt; arris_df_20jul2020                           221    775 kb
+#&gt; arris_df_20jun2020                           251    402 kb
+#&gt; arris_df_20may2020                           282    113 kb
+#&gt; arris_df_21jul2020                           220    790 kb
+#&gt; arris_df_21jun2020                           250    411 kb
+#&gt; arris_df_21may2020                           281    117 kb
+#&gt; arris_df_22jul2020                           219    799 kb
+#&gt; arris_df_22jun2020                           249    431 kb
+#&gt; arris_df_22may2020                           280    122 kb
+#&gt; arris_df_23jul2020                           218    805 kb
+#&gt; arris_df_23jun2020                           248    445 kb
+#&gt; arris_df_23may2020                           279    127 kb
+#&gt; arris_df_24jul2020                           217    825 kb
+#&gt; arris_df_24jun2020                           247    457 kb
+#&gt; arris_df_24may2020                           278    135 kb
+#&gt; arris_df_25jul2020                           216    842 kb
+#&gt; arris_df_25jun2020                           246    474 kb
+#&gt; arris_df_25may2020                           277    143 kb
+#&gt; arris_df_26jul2020                           215    848 kb
+#&gt; arris_df_26jun2020                           245    477 kb
+#&gt; arris_df_26may2020                           276    151 kb
+#&gt; arris_df_27jul2020                           214    852 kb
+#&gt; arris_df_27jun2020                           244    485 kb
+#&gt; arris_df_27may2020                           275    159 kb
+#&gt; arris_df_28jun2020                           243    501 kb
+#&gt; arris_df_28may2020                           274    161 kb
+#&gt; arris_df_29jun2020                           242    519 kb
+#&gt; arris_df_29may2020                           273    162 kb
+#&gt; arris_df_30jun2020                           241    535 kb
+#&gt; arris_df_30may2020                           272    170 kb
+#&gt; arris_df_31may2020                           271    183 kb
+#&gt; arris_df-irow_11jun2020                      260    294 kb
+#&gt; count_test_24nov2020                          94    539 kb
+#&gt; dietrich_track_lines_l_10apr2020             322      1 kb
+#&gt; dietrichTxiNames_20mar2020                   343 345 bytes
+#&gt; dietrichTxis_20mar2020                       343     51 Mb
+#&gt; dm_ab_list_11aug2020                         199    764 kb
+#&gt; dm_cbc_list_11aug2020                        199     22 kb
+#&gt; dm_jdm_samples_df_12aug2020                  198 475 bytes
+#&gt; dmjdm_ipa_pathways_30jul2020                 211     75 kb
+#&gt; gokey_data_06jul2020                         235    1.6 Mb
+#&gt; gokeynmatlist250k_11feb2021                   15    979 Mb
+#&gt; jam_divergent_17nov2020                      101    1.3 kb
+#&gt; jam_linear_17nov2020                         101 619 bytes
+#&gt; mem_dmlupus_affysoma_plots_12apr2020         320    299 kb
+#&gt; my_df_12jun2020                              259 160 bytes
+#&gt; my_df-my_df2_12jun2020                       259 212 bytes
+#&gt; proteinatlas_expr_fdb11_23jul2020            218      5 Mb
+#&gt; proteinatlas_expression_fdb11_23jul2020      218    5.3 Mb
+#&gt; proteinatlas_genesets_fdb11_23jul2020        218    109 kb
+#&gt;                                                              object_path
+#&gt; all_samples_sle2_07jan2021              /Users/wardjm/Projects/R-objects
+#&gt; arris_df_01jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_01jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_02jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_02jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_03jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_03jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_04jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_04jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_05jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_05jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_05may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_06jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_06jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_06may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_07jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_07jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_07may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_08jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_08jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_08may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_09jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_09jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_09may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_10jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_10jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_10may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_11jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_11jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_11may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_12jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_12jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_12may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_13jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_13jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_13may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_14jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_14jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_14may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_15jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_15jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_15may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_16jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_16jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_16may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_17jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_17jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_17may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_18jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_18jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_18may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_19jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_19jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_19may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_20jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_20jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_20may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_21jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_21jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_21may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_22jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_22jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_22may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_23jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_23jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_23may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_24jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_24jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_24may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_25jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_25jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_25may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_26jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_26jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_26may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_28jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_28may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_29jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_29may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_30jun2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_30may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df_31may2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df-irow_11jun2020                 /Users/wardjm/Projects/R-objects
+#&gt; count_test_24nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; dietrich_track_lines_l_10apr2020        /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxiNames_20mar2020              /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxis_20mar2020                  /Users/wardjm/Projects/R-objects
+#&gt; dm_ab_list_11aug2020                    /Users/wardjm/Projects/R-objects
+#&gt; dm_cbc_list_11aug2020                   /Users/wardjm/Projects/R-objects
+#&gt; dm_jdm_samples_df_12aug2020             /Users/wardjm/Projects/R-objects
+#&gt; dmjdm_ipa_pathways_30jul2020            /Users/wardjm/Projects/R-objects
+#&gt; gokey_data_06jul2020                    /Users/wardjm/Projects/R-objects
+#&gt; gokeynmatlist250k_11feb2021             /Users/wardjm/Projects/R-objects
+#&gt; jam_divergent_17nov2020                 /Users/wardjm/Projects/R-objects
+#&gt; jam_linear_17nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; mem_dmlupus_affysoma_plots_12apr2020    /Users/wardjm/Projects/R-objects
+#&gt; my_df_12jun2020                         /Users/wardjm/Projects/R-objects
+#&gt; my_df-my_df2_12jun2020                  /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expr_fdb11_23jul2020       /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expression_fdb11_23jul2020 /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_genesets_fdb11_23jul2020   /Users/wardjm/Projects/R-objects
+#&gt;                                                                           object_file
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2_07jan2021.RData
+#&gt; arris_df_01jul2020                                           arris_df_01jul2020.RData
+#&gt; arris_df_01jun2020                                           arris_df_01jun2020.RData
+#&gt; arris_df_02jul2020                                           arris_df_02jul2020.RData
+#&gt; arris_df_02jun2020                                           arris_df_02jun2020.RData
+#&gt; arris_df_03jul2020                                           arris_df_03jul2020.RData
+#&gt; arris_df_03jun2020                                           arris_df_03jun2020.RData
+#&gt; arris_df_04jul2020                                           arris_df_04jul2020.RData
+#&gt; arris_df_04jun2020                                           arris_df_04jun2020.RData
+#&gt; arris_df_05jul2020                                           arris_df_05jul2020.RData
+#&gt; arris_df_05jun2020                                           arris_df_05jun2020.RData
+#&gt; arris_df_05may2020                                           arris_df_05may2020.RData
+#&gt; arris_df_06jul2020                                           arris_df_06jul2020.RData
+#&gt; arris_df_06jun2020                                           arris_df_06jun2020.RData
+#&gt; arris_df_06may2020                                           arris_df_06may2020.RData
+#&gt; arris_df_07jul2020                                           arris_df_07jul2020.RData
+#&gt; arris_df_07jun2020                                           arris_df_07jun2020.RData
+#&gt; arris_df_07may2020                                           arris_df_07may2020.RData
+#&gt; arris_df_08jul2020                                           arris_df_08jul2020.RData
+#&gt; arris_df_08jun2020                                           arris_df_08jun2020.RData
+#&gt; arris_df_08may2020                                           arris_df_08may2020.RData
+#&gt; arris_df_09jul2020                                           arris_df_09jul2020.RData
+#&gt; arris_df_09jun2020                                           arris_df_09jun2020.RData
+#&gt; arris_df_09may2020                                           arris_df_09may2020.RData
+#&gt; arris_df_10jul2020                                           arris_df_10jul2020.RData
+#&gt; arris_df_10jun2020                                           arris_df_10jun2020.RData
+#&gt; arris_df_10may2020                                           arris_df_10may2020.RData
+#&gt; arris_df_11jul2020                                           arris_df_11jul2020.RData
+#&gt; arris_df_11jun2020                                           arris_df_11jun2020.RData
+#&gt; arris_df_11may2020                                           arris_df_11may2020.RData
+#&gt; arris_df_12jul2020                                           arris_df_12jul2020.RData
+#&gt; arris_df_12jun2020                                           arris_df_12jun2020.RData
+#&gt; arris_df_12may2020                                           arris_df_12may2020.RData
+#&gt; arris_df_13jul2020                                           arris_df_13jul2020.RData
+#&gt; arris_df_13jun2020                                           arris_df_13jun2020.RData
+#&gt; arris_df_13may2020                                           arris_df_13may2020.RData
+#&gt; arris_df_14jul2020                                           arris_df_14jul2020.RData
+#&gt; arris_df_14jun2020                                           arris_df_14jun2020.RData
+#&gt; arris_df_14may2020                                           arris_df_14may2020.RData
+#&gt; arris_df_15jul2020                                           arris_df_15jul2020.RData
+#&gt; arris_df_15jun2020                                           arris_df_15jun2020.RData
+#&gt; arris_df_15may2020                                           arris_df_15may2020.RData
+#&gt; arris_df_16jul2020                                           arris_df_16jul2020.RData
+#&gt; arris_df_16jun2020                                           arris_df_16jun2020.RData
+#&gt; arris_df_16may2020                                           arris_df_16may2020.RData
+#&gt; arris_df_17jul2020                                           arris_df_17jul2020.RData
+#&gt; arris_df_17jun2020                                           arris_df_17jun2020.RData
+#&gt; arris_df_17may2020                                           arris_df_17may2020.RData
+#&gt; arris_df_18jul2020                                           arris_df_18jul2020.RData
+#&gt; arris_df_18jun2020                                           arris_df_18jun2020.RData
+#&gt; arris_df_18may2020                                           arris_df_18may2020.RData
+#&gt; arris_df_19jul2020                                           arris_df_19jul2020.RData
+#&gt; arris_df_19jun2020                                           arris_df_19jun2020.RData
+#&gt; arris_df_19may2020                                           arris_df_19may2020.RData
+#&gt; arris_df_20jul2020                                           arris_df_20jul2020.RData
+#&gt; arris_df_20jun2020                                           arris_df_20jun2020.RData
+#&gt; arris_df_20may2020                                           arris_df_20may2020.RData
+#&gt; arris_df_21jul2020                                           arris_df_21jul2020.RData
+#&gt; arris_df_21jun2020                                           arris_df_21jun2020.RData
+#&gt; arris_df_21may2020                                           arris_df_21may2020.RData
+#&gt; arris_df_22jul2020                                           arris_df_22jul2020.RData
+#&gt; arris_df_22jun2020                                           arris_df_22jun2020.RData
+#&gt; arris_df_22may2020                                           arris_df_22may2020.RData
+#&gt; arris_df_23jul2020                                           arris_df_23jul2020.RData
+#&gt; arris_df_23jun2020                                           arris_df_23jun2020.RData
+#&gt; arris_df_23may2020                                           arris_df_23may2020.RData
+#&gt; arris_df_24jul2020                                           arris_df_24jul2020.RData
+#&gt; arris_df_24jun2020                                           arris_df_24jun2020.RData
+#&gt; arris_df_24may2020                                           arris_df_24may2020.RData
+#&gt; arris_df_25jul2020                                           arris_df_25jul2020.RData
+#&gt; arris_df_25jun2020                                           arris_df_25jun2020.RData
+#&gt; arris_df_25may2020                                           arris_df_25may2020.RData
+#&gt; arris_df_26jul2020                                           arris_df_26jul2020.RData
+#&gt; arris_df_26jun2020                                           arris_df_26jun2020.RData
+#&gt; arris_df_26may2020                                           arris_df_26may2020.RData
+#&gt; arris_df_27jul2020                                           arris_df_27jul2020.RData
+#&gt; arris_df_27jun2020                                           arris_df_27jun2020.RData
+#&gt; arris_df_27may2020                                           arris_df_27may2020.RData
+#&gt; arris_df_28jun2020                                           arris_df_28jun2020.RData
+#&gt; arris_df_28may2020                                           arris_df_28may2020.RData
+#&gt; arris_df_29jun2020                                           arris_df_29jun2020.RData
+#&gt; arris_df_29may2020                                           arris_df_29may2020.RData
+#&gt; arris_df_30jun2020                                           arris_df_30jun2020.RData
+#&gt; arris_df_30may2020                                           arris_df_30may2020.RData
+#&gt; arris_df_31may2020                                           arris_df_31may2020.RData
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow_11jun2020.RData
+#&gt; count_test_24nov2020                                       count_test_24nov2020.RData
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l_10apr2020.RData
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames_20mar2020.RData
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis_20mar2020.RData
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list_11aug2020.RData
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list_11aug2020.RData
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df_12aug2020.RData
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways_30jul2020.RData
+#&gt; gokey_data_06jul2020                                       gokey_data_06jul2020.RData
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k_11feb2021.RData
+#&gt; jam_divergent_17nov2020                                 jam_divergent_17nov2020.RData
+#&gt; jam_linear_17nov2020                                       jam_linear_17nov2020.RData
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots_12apr2020.RData
+#&gt; my_df_12jun2020                                                 my_df_12jun2020.RData
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2_12jun2020.RData
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11_23jul2020.RData
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11_23jul2020.RData
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11_23jul2020.RData
 #&gt; 
 #&gt; $object
 #&gt; NULL
 #&gt; </div><div class='input'>
 <span class='co'># you can return only the most recent for each object</span>
-<span class='fu'>list_objects</span>(<span class='kw'>most_recent</span><span class='kw'>=</span><span class='fl'>TRUE</span>);</div><div class='output co'>#&gt; $object_df
-#&gt;                                                          object save_date
-#&gt; arris_df_11jun2020                                     arris_df 11jun2020
-#&gt; arris_df-irow_11jun2020                           arris_df-irow 11jun2020
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l 10apr2020
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames 20mar2020
-#&gt; dietrichTxis_20mar2020                             dietrichTxis 20mar2020
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots 12apr2020
-#&gt; my_df_12jun2020                                           my_df 12jun2020
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2 12jun2020
-#&gt;                                      days_old file_size
-#&gt; arris_df_11jun2020                          1    298 kb
-#&gt; arris_df-irow_11jun2020                     1    294 kb
-#&gt; dietrich_track_lines_l_10apr2020           63      1 kb
-#&gt; dietrichTxiNames_20mar2020                 84 345 bytes
-#&gt; dietrichTxis_20mar2020                     84     51 Mb
-#&gt; mem_dmlupus_affysoma_plots_12apr2020       61    299 kb
-#&gt; my_df_12jun2020                             0 160 bytes
-#&gt; my_df-my_df2_12jun2020                      0 212 bytes
-#&gt;                                                           object_path
-#&gt; arris_df_11jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df-irow_11jun2020              /Users/wardjm/Projects/R-objects
-#&gt; dietrich_track_lines_l_10apr2020     /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxiNames_20mar2020           /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxis_20mar2020               /Users/wardjm/Projects/R-objects
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 /Users/wardjm/Projects/R-objects
-#&gt; my_df_12jun2020                      /Users/wardjm/Projects/R-objects
-#&gt; my_df-my_df2_12jun2020               /Users/wardjm/Projects/R-objects
-#&gt;                                                                     object_file
-#&gt; arris_df_11jun2020                                     arris_df_11jun2020.RData
-#&gt; arris_df-irow_11jun2020                           arris_df-irow_11jun2020.RData
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l_10apr2020.RData
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames_20mar2020.RData
-#&gt; dietrichTxis_20mar2020                             dietrichTxis_20mar2020.RData
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots_12apr2020.RData
-#&gt; my_df_12jun2020                                           my_df_12jun2020.RData
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2_12jun2020.RData
+<span class='fu'>list_objects</span><span class='op'>(</span>most_recent<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; $object_df
+#&gt;                                                                object save_date
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2 07jan2021
+#&gt; arris_df_27jul2020                                           arris_df 27jul2020
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow 11jun2020
+#&gt; count_test_24nov2020                                       count_test 24nov2020
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l 10apr2020
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames 20mar2020
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis 20mar2020
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list 11aug2020
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list 11aug2020
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df 12aug2020
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways 30jul2020
+#&gt; gokey_data_06jul2020                                       gokey_data 06jul2020
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k 11feb2021
+#&gt; jam_divergent_17nov2020                                 jam_divergent 17nov2020
+#&gt; jam_linear_17nov2020                                       jam_linear 17nov2020
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots 12apr2020
+#&gt; my_df_12jun2020                                                 my_df 12jun2020
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2 12jun2020
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11 23jul2020
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11 23jul2020
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11 23jul2020
+#&gt;                                         days_old file_size
+#&gt; all_samples_sle2_07jan2021                    50 314 bytes
+#&gt; arris_df_27jul2020                           214    852 kb
+#&gt; arris_df-irow_11jun2020                      260    294 kb
+#&gt; count_test_24nov2020                          94    539 kb
+#&gt; dietrich_track_lines_l_10apr2020             322      1 kb
+#&gt; dietrichTxiNames_20mar2020                   343 345 bytes
+#&gt; dietrichTxis_20mar2020                       343     51 Mb
+#&gt; dm_ab_list_11aug2020                         199    764 kb
+#&gt; dm_cbc_list_11aug2020                        199     22 kb
+#&gt; dm_jdm_samples_df_12aug2020                  198 475 bytes
+#&gt; dmjdm_ipa_pathways_30jul2020                 211     75 kb
+#&gt; gokey_data_06jul2020                         235    1.6 Mb
+#&gt; gokeynmatlist250k_11feb2021                   15    979 Mb
+#&gt; jam_divergent_17nov2020                      101    1.3 kb
+#&gt; jam_linear_17nov2020                         101 619 bytes
+#&gt; mem_dmlupus_affysoma_plots_12apr2020         320    299 kb
+#&gt; my_df_12jun2020                              259 160 bytes
+#&gt; my_df-my_df2_12jun2020                       259 212 bytes
+#&gt; proteinatlas_expr_fdb11_23jul2020            218      5 Mb
+#&gt; proteinatlas_expression_fdb11_23jul2020      218    5.3 Mb
+#&gt; proteinatlas_genesets_fdb11_23jul2020        218    109 kb
+#&gt;                                                              object_path
+#&gt; all_samples_sle2_07jan2021              /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; arris_df-irow_11jun2020                 /Users/wardjm/Projects/R-objects
+#&gt; count_test_24nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; dietrich_track_lines_l_10apr2020        /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxiNames_20mar2020              /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxis_20mar2020                  /Users/wardjm/Projects/R-objects
+#&gt; dm_ab_list_11aug2020                    /Users/wardjm/Projects/R-objects
+#&gt; dm_cbc_list_11aug2020                   /Users/wardjm/Projects/R-objects
+#&gt; dm_jdm_samples_df_12aug2020             /Users/wardjm/Projects/R-objects
+#&gt; dmjdm_ipa_pathways_30jul2020            /Users/wardjm/Projects/R-objects
+#&gt; gokey_data_06jul2020                    /Users/wardjm/Projects/R-objects
+#&gt; gokeynmatlist250k_11feb2021             /Users/wardjm/Projects/R-objects
+#&gt; jam_divergent_17nov2020                 /Users/wardjm/Projects/R-objects
+#&gt; jam_linear_17nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; mem_dmlupus_affysoma_plots_12apr2020    /Users/wardjm/Projects/R-objects
+#&gt; my_df_12jun2020                         /Users/wardjm/Projects/R-objects
+#&gt; my_df-my_df2_12jun2020                  /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expr_fdb11_23jul2020       /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expression_fdb11_23jul2020 /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_genesets_fdb11_23jul2020   /Users/wardjm/Projects/R-objects
+#&gt;                                                                           object_file
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2_07jan2021.RData
+#&gt; arris_df_27jul2020                                           arris_df_27jul2020.RData
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow_11jun2020.RData
+#&gt; count_test_24nov2020                                       count_test_24nov2020.RData
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l_10apr2020.RData
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames_20mar2020.RData
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis_20mar2020.RData
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list_11aug2020.RData
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list_11aug2020.RData
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df_12aug2020.RData
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways_30jul2020.RData
+#&gt; gokey_data_06jul2020                                       gokey_data_06jul2020.RData
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k_11feb2021.RData
+#&gt; jam_divergent_17nov2020                                 jam_divergent_17nov2020.RData
+#&gt; jam_linear_17nov2020                                       jam_linear_17nov2020.RData
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots_12apr2020.RData
+#&gt; my_df_12jun2020                                                 my_df_12jun2020.RData
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2_12jun2020.RData
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11_23jul2020.RData
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11_23jul2020.RData
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11_23jul2020.RData
 #&gt; 
 #&gt; $object
 #&gt; NULL
 #&gt; </div><div class='input'>
 <span class='co'># add_stats makes sense when most_recent=TRUE</span>
-<span class='fu'>list_objects</span>(<span class='kw'>most_recent</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>add_stats</span><span class='kw'>=</span><span class='fl'>TRUE</span>);</div><div class='output co'>#&gt; $object_df
-#&gt;                       object save_date days_old file_size
-#&gt; 1                   arris_df 11jun2020        1    298 kb
-#&gt; 2              arris_df-irow 11jun2020        1    294 kb
-#&gt; 3     dietrich_track_lines_l 10apr2020       63      1 kb
-#&gt; 4           dietrichTxiNames 20mar2020       84 345 bytes
-#&gt; 5               dietrichTxis 20mar2020       84     51 Mb
-#&gt; 6 mem_dmlupus_affysoma_plots 12apr2020       61    299 kb
-#&gt; 7                      my_df 12jun2020        0 160 bytes
-#&gt; 8               my_df-my_df2 12jun2020        0 212 bytes
-#&gt;                        object_path                                object_file
-#&gt; 1 /Users/wardjm/Projects/R-objects                   arris_df_11jun2020.RData
-#&gt; 2 /Users/wardjm/Projects/R-objects              arris_df-irow_11jun2020.RData
-#&gt; 3 /Users/wardjm/Projects/R-objects     dietrich_track_lines_l_10apr2020.RData
-#&gt; 4 /Users/wardjm/Projects/R-objects           dietrichTxiNames_20mar2020.RData
-#&gt; 5 /Users/wardjm/Projects/R-objects               dietrichTxis_20mar2020.RData
-#&gt; 6 /Users/wardjm/Projects/R-objects mem_dmlupus_affysoma_plots_12apr2020.RData
-#&gt; 7 /Users/wardjm/Projects/R-objects                      my_df_12jun2020.RData
-#&gt; 8 /Users/wardjm/Projects/R-objects               my_df-my_df2_12jun2020.RData
-#&gt;   number_saved total_size days_span
-#&gt; 1           38     5.2 Mb        38
-#&gt; 2            1     294 kb         1
-#&gt; 3            1       1 kb         1
-#&gt; 4            1  345 bytes         1
-#&gt; 5            1      51 Mb         1
-#&gt; 6            1     299 kb         1
-#&gt; 7            1  160 bytes         1
-#&gt; 8            1  212 bytes         1
+<span class='fu'>list_objects</span><span class='op'>(</span>most_recent<span class='op'>=</span><span class='cn'>TRUE</span>, add_stats<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='warning'>Warning: package ‘data.table’ was built under R version 3.6.2</span></div><div class='output co'>#&gt; $object_df
+#&gt;                           object save_date days_old file_size
+#&gt; 1               all_samples_sle2 07jan2021       50 314 bytes
+#&gt; 2                       arris_df 27jul2020      214    852 kb
+#&gt; 3                  arris_df-irow 11jun2020      260    294 kb
+#&gt; 4                     count_test 24nov2020       94    539 kb
+#&gt; 5         dietrich_track_lines_l 10apr2020      322      1 kb
+#&gt; 6               dietrichTxiNames 20mar2020      343 345 bytes
+#&gt; 7                   dietrichTxis 20mar2020      343     51 Mb
+#&gt; 8                     dm_ab_list 11aug2020      199    764 kb
+#&gt; 9                    dm_cbc_list 11aug2020      199     22 kb
+#&gt; 10             dm_jdm_samples_df 12aug2020      198 475 bytes
+#&gt; 11            dmjdm_ipa_pathways 30jul2020      211     75 kb
+#&gt; 12                    gokey_data 06jul2020      235    1.6 Mb
+#&gt; 13             gokeynmatlist250k 11feb2021       15    979 Mb
+#&gt; 14                 jam_divergent 17nov2020      101    1.3 kb
+#&gt; 15                    jam_linear 17nov2020      101 619 bytes
+#&gt; 16    mem_dmlupus_affysoma_plots 12apr2020      320    299 kb
+#&gt; 17                         my_df 12jun2020      259 160 bytes
+#&gt; 18                  my_df-my_df2 12jun2020      259 212 bytes
+#&gt; 19       proteinatlas_expr_fdb11 23jul2020      218      5 Mb
+#&gt; 20 proteinatlas_expression_fdb11 23jul2020      218    5.3 Mb
+#&gt; 21   proteinatlas_genesets_fdb11 23jul2020      218    109 kb
+#&gt;                         object_path
+#&gt; 1  /Users/wardjm/Projects/R-objects
+#&gt; 2  /Users/wardjm/Projects/R-objects
+#&gt; 3  /Users/wardjm/Projects/R-objects
+#&gt; 4  /Users/wardjm/Projects/R-objects
+#&gt; 5  /Users/wardjm/Projects/R-objects
+#&gt; 6  /Users/wardjm/Projects/R-objects
+#&gt; 7  /Users/wardjm/Projects/R-objects
+#&gt; 8  /Users/wardjm/Projects/R-objects
+#&gt; 9  /Users/wardjm/Projects/R-objects
+#&gt; 10 /Users/wardjm/Projects/R-objects
+#&gt; 11 /Users/wardjm/Projects/R-objects
+#&gt; 12 /Users/wardjm/Projects/R-objects
+#&gt; 13 /Users/wardjm/Projects/R-objects
+#&gt; 14 /Users/wardjm/Projects/R-objects
+#&gt; 15 /Users/wardjm/Projects/R-objects
+#&gt; 16 /Users/wardjm/Projects/R-objects
+#&gt; 17 /Users/wardjm/Projects/R-objects
+#&gt; 18 /Users/wardjm/Projects/R-objects
+#&gt; 19 /Users/wardjm/Projects/R-objects
+#&gt; 20 /Users/wardjm/Projects/R-objects
+#&gt; 21 /Users/wardjm/Projects/R-objects
+#&gt;                                      object_file number_saved total_size
+#&gt; 1               all_samples_sle2_07jan2021.RData            1  314 bytes
+#&gt; 2                       arris_df_27jul2020.RData           84      32 Mb
+#&gt; 3                  arris_df-irow_11jun2020.RData            1     294 kb
+#&gt; 4                     count_test_24nov2020.RData            1     539 kb
+#&gt; 5         dietrich_track_lines_l_10apr2020.RData            1       1 kb
+#&gt; 6               dietrichTxiNames_20mar2020.RData            1  345 bytes
+#&gt; 7                   dietrichTxis_20mar2020.RData            1      51 Mb
+#&gt; 8                     dm_ab_list_11aug2020.RData            1     764 kb
+#&gt; 9                    dm_cbc_list_11aug2020.RData            1      22 kb
+#&gt; 10             dm_jdm_samples_df_12aug2020.RData            1  475 bytes
+#&gt; 11            dmjdm_ipa_pathways_30jul2020.RData            1      75 kb
+#&gt; 12                    gokey_data_06jul2020.RData            1     1.6 Mb
+#&gt; 13             gokeynmatlist250k_11feb2021.RData            1     979 Mb
+#&gt; 14                 jam_divergent_17nov2020.RData            1     1.3 kb
+#&gt; 15                    jam_linear_17nov2020.RData            1  619 bytes
+#&gt; 16    mem_dmlupus_affysoma_plots_12apr2020.RData            1     299 kb
+#&gt; 17                         my_df_12jun2020.RData            1  160 bytes
+#&gt; 18                  my_df-my_df2_12jun2020.RData            1  212 bytes
+#&gt; 19       proteinatlas_expr_fdb11_23jul2020.RData            1       5 Mb
+#&gt; 20 proteinatlas_expression_fdb11_23jul2020.RData            1     5.3 Mb
+#&gt; 21   proteinatlas_genesets_fdb11_23jul2020.RData            1     109 kb
+#&gt;    days_span
+#&gt; 1          1
+#&gt; 2         84
+#&gt; 3          1
+#&gt; 4          1
+#&gt; 5          1
+#&gt; 6          1
+#&gt; 7          1
+#&gt; 8          1
+#&gt; 9          1
+#&gt; 10         1
+#&gt; 11         1
+#&gt; 12         1
+#&gt; 13         1
+#&gt; 14         1
+#&gt; 15         1
+#&gt; 16         1
+#&gt; 17         1
+#&gt; 18         1
+#&gt; 19         1
+#&gt; 20         1
+#&gt; 21         1
 #&gt; 
 #&gt; $object
 #&gt; NULL
 #&gt; </div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -496,7 +845,7 @@ without the grep_patten search step.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

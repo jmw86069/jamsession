@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="search for saved R objects — grep_objects" />
 <meta property="og:description" content="search for saved R objects" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jamsession</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -102,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jmw86069/jamsession">
+  <a href="http://github.com/jmw86069/jamsession/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -121,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>search for saved R objects</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/jmw86069/jamsession/blob/master/R/jamsession.R'><code>R/jamsession.R</code></a></small>
     <div class="hidden name"><code>grep_objects.Rd</code></div>
     </div>
 
@@ -129,17 +132,17 @@
     <p>search for saved R objects</p>
     </div>
 
-    <pre class="usage"><span class='fu'>grep_objects</span>(
-  <span class='kw'>grep_string</span> <span class='kw'>=</span> <span class='st'>"."</span>,
-  <span class='kw'>save_date</span> <span class='kw'>=</span> <span class='st'>"."</span>,
-  <span class='kw'>objects_path</span> <span class='kw'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span>()$<span class='no'>objects</span>,
-  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>return_df</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>most_recent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>add_stats</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>grep_objects</span><span class='op'>(</span>
+  grep_string <span class='op'>=</span> <span class='st'>"."</span>,
+  save_date <span class='op'>=</span> <span class='st'>"."</span>,
+  objects_path <span class='op'>=</span> <span class='fu'><a href='jamsession_paths.html'>jamsession_paths</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>objects</span>,
+  ignore.case <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  return_df <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  most_recent <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  add_stats <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -233,69 +236,120 @@ without the grep_patten search step.</p>
 <code><a href='save_object.html'>save_object</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>grep_objects</span>(<span class='st'>"."</span>);</div><div class='output co'>#&gt;                                                          object save_date
-#&gt; my_df_12jun2020                                           my_df 12jun2020
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2 12jun2020
-#&gt; arris_df_11jun2020                                     arris_df 11jun2020
-#&gt; arris_df-irow_11jun2020                           arris_df-irow 11jun2020
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots 12apr2020
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l 10apr2020
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames 20mar2020
-#&gt; dietrichTxis_20mar2020                             dietrichTxis 20mar2020
-#&gt;                                      days_old file_size
-#&gt; my_df_12jun2020                             0 160 bytes
-#&gt; my_df-my_df2_12jun2020                      0 212 bytes
-#&gt; arris_df_11jun2020                          1    298 kb
-#&gt; arris_df-irow_11jun2020                     1    294 kb
-#&gt; mem_dmlupus_affysoma_plots_12apr2020       61    299 kb
-#&gt; dietrich_track_lines_l_10apr2020           63      1 kb
-#&gt; dietrichTxiNames_20mar2020                 84 345 bytes
-#&gt; dietrichTxis_20mar2020                     84     51 Mb
-#&gt;                                                           object_path
-#&gt; my_df_12jun2020                      /Users/wardjm/Projects/R-objects
-#&gt; my_df-my_df2_12jun2020               /Users/wardjm/Projects/R-objects
-#&gt; arris_df_11jun2020                   /Users/wardjm/Projects/R-objects
-#&gt; arris_df-irow_11jun2020              /Users/wardjm/Projects/R-objects
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 /Users/wardjm/Projects/R-objects
-#&gt; dietrich_track_lines_l_10apr2020     /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxiNames_20mar2020           /Users/wardjm/Projects/R-objects
-#&gt; dietrichTxis_20mar2020               /Users/wardjm/Projects/R-objects
-#&gt;                                                                     object_file
-#&gt; my_df_12jun2020                                           my_df_12jun2020.RData
-#&gt; my_df-my_df2_12jun2020                             my_df-my_df2_12jun2020.RData
-#&gt; arris_df_11jun2020                                     arris_df_11jun2020.RData
-#&gt; arris_df-irow_11jun2020                           arris_df-irow_11jun2020.RData
-#&gt; mem_dmlupus_affysoma_plots_12apr2020 mem_dmlupus_affysoma_plots_12apr2020.RData
-#&gt; dietrich_track_lines_l_10apr2020         dietrich_track_lines_l_10apr2020.RData
-#&gt; dietrichTxiNames_20mar2020                     dietrichTxiNames_20mar2020.RData
-#&gt; dietrichTxis_20mar2020                             dietrichTxis_20mar2020.RData</div><div class='input'>
-<span class='fu'>grep_objects</span>(<span class='st'>"df"</span>);</div><div class='output co'>#&gt;                                object save_date days_old file_size
-#&gt; my_df_12jun2020                 my_df 12jun2020        0 160 bytes
-#&gt; my_df-my_df2_12jun2020   my_df-my_df2 12jun2020        0 212 bytes
-#&gt; arris_df_11jun2020           arris_df 11jun2020        1    298 kb
-#&gt; arris_df-irow_11jun2020 arris_df-irow 11jun2020        1    294 kb
-#&gt;                                              object_path
-#&gt; my_df_12jun2020         /Users/wardjm/Projects/R-objects
-#&gt; my_df-my_df2_12jun2020  /Users/wardjm/Projects/R-objects
-#&gt; arris_df_11jun2020      /Users/wardjm/Projects/R-objects
-#&gt; arris_df-irow_11jun2020 /Users/wardjm/Projects/R-objects
-#&gt;                                           object_file
-#&gt; my_df_12jun2020                 my_df_12jun2020.RData
-#&gt; my_df-my_df2_12jun2020   my_df-my_df2_12jun2020.RData
-#&gt; arris_df_11jun2020           arris_df_11jun2020.RData
-#&gt; arris_df-irow_11jun2020 arris_df-irow_11jun2020.RData</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>grep_objects</span><span class='op'>(</span><span class='st'>"."</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;                                                                object save_date
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k 11feb2021
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2 07jan2021
+#&gt; count_test_24nov2020                                       count_test 24nov2020
+#&gt; jam_divergent_17nov2020                                 jam_divergent 17nov2020
+#&gt; jam_linear_17nov2020                                       jam_linear 17nov2020
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df 12aug2020
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list 11aug2020
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list 11aug2020
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways 30jul2020
+#&gt; arris_df_27jul2020                                           arris_df 27jul2020
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11 23jul2020
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11 23jul2020
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11 23jul2020
+#&gt; gokey_data_06jul2020                                       gokey_data 06jul2020
+#&gt; my_df_12jun2020                                                 my_df 12jun2020
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2 12jun2020
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow 11jun2020
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots 12apr2020
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l 10apr2020
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames 20mar2020
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis 20mar2020
+#&gt;                                         days_old file_size
+#&gt; gokeynmatlist250k_11feb2021                   15    979 Mb
+#&gt; all_samples_sle2_07jan2021                    50 314 bytes
+#&gt; count_test_24nov2020                          94    539 kb
+#&gt; jam_divergent_17nov2020                      101    1.3 kb
+#&gt; jam_linear_17nov2020                         101 619 bytes
+#&gt; dm_jdm_samples_df_12aug2020                  198 475 bytes
+#&gt; dm_ab_list_11aug2020                         199    764 kb
+#&gt; dm_cbc_list_11aug2020                        199     22 kb
+#&gt; dmjdm_ipa_pathways_30jul2020                 211     75 kb
+#&gt; arris_df_27jul2020                           214    852 kb
+#&gt; proteinatlas_expr_fdb11_23jul2020            218      5 Mb
+#&gt; proteinatlas_expression_fdb11_23jul2020      218    5.3 Mb
+#&gt; proteinatlas_genesets_fdb11_23jul2020        218    109 kb
+#&gt; gokey_data_06jul2020                         235    1.6 Mb
+#&gt; my_df_12jun2020                              259 160 bytes
+#&gt; my_df-my_df2_12jun2020                       259 212 bytes
+#&gt; arris_df-irow_11jun2020                      260    294 kb
+#&gt; mem_dmlupus_affysoma_plots_12apr2020         320    299 kb
+#&gt; dietrich_track_lines_l_10apr2020             322      1 kb
+#&gt; dietrichTxiNames_20mar2020                   343 345 bytes
+#&gt; dietrichTxis_20mar2020                       343     51 Mb
+#&gt;                                                              object_path
+#&gt; gokeynmatlist250k_11feb2021             /Users/wardjm/Projects/R-objects
+#&gt; all_samples_sle2_07jan2021              /Users/wardjm/Projects/R-objects
+#&gt; count_test_24nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; jam_divergent_17nov2020                 /Users/wardjm/Projects/R-objects
+#&gt; jam_linear_17nov2020                    /Users/wardjm/Projects/R-objects
+#&gt; dm_jdm_samples_df_12aug2020             /Users/wardjm/Projects/R-objects
+#&gt; dm_ab_list_11aug2020                    /Users/wardjm/Projects/R-objects
+#&gt; dm_cbc_list_11aug2020                   /Users/wardjm/Projects/R-objects
+#&gt; dmjdm_ipa_pathways_30jul2020            /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27jul2020                      /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expr_fdb11_23jul2020       /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_expression_fdb11_23jul2020 /Users/wardjm/Projects/R-objects
+#&gt; proteinatlas_genesets_fdb11_23jul2020   /Users/wardjm/Projects/R-objects
+#&gt; gokey_data_06jul2020                    /Users/wardjm/Projects/R-objects
+#&gt; my_df_12jun2020                         /Users/wardjm/Projects/R-objects
+#&gt; my_df-my_df2_12jun2020                  /Users/wardjm/Projects/R-objects
+#&gt; arris_df-irow_11jun2020                 /Users/wardjm/Projects/R-objects
+#&gt; mem_dmlupus_affysoma_plots_12apr2020    /Users/wardjm/Projects/R-objects
+#&gt; dietrich_track_lines_l_10apr2020        /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxiNames_20mar2020              /Users/wardjm/Projects/R-objects
+#&gt; dietrichTxis_20mar2020                  /Users/wardjm/Projects/R-objects
+#&gt;                                                                           object_file
+#&gt; gokeynmatlist250k_11feb2021                         gokeynmatlist250k_11feb2021.RData
+#&gt; all_samples_sle2_07jan2021                           all_samples_sle2_07jan2021.RData
+#&gt; count_test_24nov2020                                       count_test_24nov2020.RData
+#&gt; jam_divergent_17nov2020                                 jam_divergent_17nov2020.RData
+#&gt; jam_linear_17nov2020                                       jam_linear_17nov2020.RData
+#&gt; dm_jdm_samples_df_12aug2020                         dm_jdm_samples_df_12aug2020.RData
+#&gt; dm_ab_list_11aug2020                                       dm_ab_list_11aug2020.RData
+#&gt; dm_cbc_list_11aug2020                                     dm_cbc_list_11aug2020.RData
+#&gt; dmjdm_ipa_pathways_30jul2020                       dmjdm_ipa_pathways_30jul2020.RData
+#&gt; arris_df_27jul2020                                           arris_df_27jul2020.RData
+#&gt; proteinatlas_expr_fdb11_23jul2020             proteinatlas_expr_fdb11_23jul2020.RData
+#&gt; proteinatlas_expression_fdb11_23jul2020 proteinatlas_expression_fdb11_23jul2020.RData
+#&gt; proteinatlas_genesets_fdb11_23jul2020     proteinatlas_genesets_fdb11_23jul2020.RData
+#&gt; gokey_data_06jul2020                                       gokey_data_06jul2020.RData
+#&gt; my_df_12jun2020                                                 my_df_12jun2020.RData
+#&gt; my_df-my_df2_12jun2020                                   my_df-my_df2_12jun2020.RData
+#&gt; arris_df-irow_11jun2020                                 arris_df-irow_11jun2020.RData
+#&gt; mem_dmlupus_affysoma_plots_12apr2020       mem_dmlupus_affysoma_plots_12apr2020.RData
+#&gt; dietrich_track_lines_l_10apr2020               dietrich_track_lines_l_10apr2020.RData
+#&gt; dietrichTxiNames_20mar2020                           dietrichTxiNames_20mar2020.RData
+#&gt; dietrichTxis_20mar2020                                   dietrichTxis_20mar2020.RData</div><div class='input'>
+<span class='fu'>grep_objects</span><span class='op'>(</span><span class='st'>"df"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt;                                        object save_date days_old file_size
+#&gt; dm_jdm_samples_df_12aug2020 dm_jdm_samples_df 12aug2020      198 475 bytes
+#&gt; arris_df_27jul2020                   arris_df 27jul2020      214    852 kb
+#&gt; my_df_12jun2020                         my_df 12jun2020      259 160 bytes
+#&gt; my_df-my_df2_12jun2020           my_df-my_df2 12jun2020      259 212 bytes
+#&gt; arris_df-irow_11jun2020         arris_df-irow 11jun2020      260    294 kb
+#&gt;                                                  object_path
+#&gt; dm_jdm_samples_df_12aug2020 /Users/wardjm/Projects/R-objects
+#&gt; arris_df_27jul2020          /Users/wardjm/Projects/R-objects
+#&gt; my_df_12jun2020             /Users/wardjm/Projects/R-objects
+#&gt; my_df-my_df2_12jun2020      /Users/wardjm/Projects/R-objects
+#&gt; arris_df-irow_11jun2020     /Users/wardjm/Projects/R-objects
+#&gt;                                                   object_file
+#&gt; dm_jdm_samples_df_12aug2020 dm_jdm_samples_df_12aug2020.RData
+#&gt; arris_df_27jul2020                   arris_df_27jul2020.RData
+#&gt; my_df_12jun2020                         my_df_12jun2020.RData
+#&gt; my_df-my_df2_12jun2020           my_df-my_df2_12jun2020.RData
+#&gt; arris_df-irow_11jun2020         arris_df-irow_11jun2020.RData</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -306,7 +360,7 @@ without the grep_patten search step.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
