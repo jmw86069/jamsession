@@ -13,6 +13,8 @@ grep_jamsessions(
   most_recent = TRUE,
   include_attrs = FALSE,
   add_stats = FALSE,
+  remove_pattern = NULL,
+  replacement = NULL,
   verbose = FALSE,
   ...
 )
@@ -46,6 +48,9 @@ only used when \code{return_df=FALSE}.}
 stats for each session: \code{number_saved} is the number of past versions
 of the session; \code{total_size} is the total file size for all saved
 versions.}
+
+\item{remove_pattern, replacement}{arguments passed to
+\code{clean_jamsession_name()}.}
 
 \item{verbose}{\code{logical} indicating whether to print verbose output.}
 

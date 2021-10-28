@@ -3,12 +3,18 @@
 ## Overall workflow
 
 ### Central file paths are stored as options.
-Need to decide which function/method to use:
 
 * `jamsession_paths()`
-   - sessions
-   - objects
-   - functions
+
+   - sessions: `getOption("jam.sessions_path", "~/Projects/R-sessions")`
+   - objects: `getOption("jam.objects_path", "~/Projects/R-objects")`
+   - functions: `getOption("jam.functions_path", "~/Projects/R-scripts")`
+
+* direct access to each file path:
+
+   - sessions: `sessions_path=jamsession_paths()$sessions`
+   - objects: `sessions_path=jamsession_paths()$objects`
+   - functions: `sessions_path=jamsession_paths()$functions`
    
 ### Sessions / Projects
 
@@ -20,9 +26,15 @@ Need to decide which function/method to use:
 
 * `load_jamsession()` - load session by name
    - sessions_path=jamsession_paths()$sessions
-   - default loads into `.GlobalEnv`
-   - need to test loading into named environment
+   - loads as a virtual package named based upon the script
+   - note that it is able to load as an existing package name
 
 * `save_jamsession()` - save session by name
    - default saves `.GlobalEnv`
    - need to test (or remove) option to save another environment
+
+### Objects
+
+* `list_objects()` - list stored objects
+* `grep_objects()` - find objects by name
+

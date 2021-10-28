@@ -17,26 +17,51 @@ save_object(
 )
 }
 \arguments{
-\item{object_list}{character vector of object names to save, typically only
-one value.}
+\item{object_list}{\code{character} vector with one or more R object
+names to save. The typical workflow stores only one object per
+file. We recommend storing multiple objects into one file only
+when those objects are only useful together, and using only one
+object would be insufficient or lack enough context for full re-use.}
 
-\item{save_date}{character date string to use when naming the file, typically
-the current date is used.}
+\item{save_date}{character date string to use when naming the file.
+By default, the current date is used via the function
+\code{jamba::getDate()}, however to use a custom date format any
+text string can be used here.}
 
 \item{objects_path}{character vector of one or more file paths to
 search for saved R objects. When \code{objects_path=NULL}, it uses
-the output from \code{jamsession_paths()$objects}.}
+the output from \code{jamsession_paths()$objects}. The process will
+try to save the \code{.RData} file in each path in \code{objects_path}
+in order, and will use the first successful attempt. For example
+if two paths are supplied, and the first path is not accessible
+or not user-writeable, the second path will be attempted.
+If no paths are user-writeable, this function will \code{stop()}.}
 
-\item{object_notes_list}{character vector of optional notes associated with
-the R object. Intended as a crude way to allow describing an object.}
+\item{object_notes_list}{\code{character} vector or \code{list} of \code{character}
+vectors that contain optional notes associated with the R object(s).
+This mechanism is intended as a crude way to store text information
+associated with the stored R objects. For example, one could store
+a short text description of how to R objects were created, or some
+other useful information. This process is currently experimental,
+and may be refactored in future to have a more consistent workflow.}
 
-\item{do_file_info}{logical whether to print information about the saved
-.RData file, for example including the size.}
+\item{do_file_info}{\code{logical} indicating whether to print information
+about the saved \code{.RData} file, which includes the stored file
+size and path.}
+
+\item{object_suffix}{\code{character} string used as the file extension,
+by default \code{".RData"}. This value should probably never change,
+but it is possible to change here.}
 
 \item{envir}{the environment from which to obtain the R object.}
+
+\item{verbose}{\code{logical} indicating whether to print verbose output.}
+
+\item{...}{additional arguments are ignored.}
 }
 \value{
-invisible file path loaded
+\code{character} string with the file path where the
+R object data is stored.
 }
 \description{
 save R object to a central location
@@ -65,6 +90,18 @@ Note that \code{objects_path} may contain multiple directories, and
 when this occurs, the directories are attempted in order. The
 R object is saved to the first directory that allows the file
 to be saved successfully.
+}
+\examples{
+temp_objects_path <- file.path(tempdir(), "R-objects");
+if (!dir.exists(temp_objects_path)) {
+   dir.create(temp_objects_path)
+}
+example_df <- data.frame(name=LETTERS[1:5], values=letters[1:5])
+save_object("example_df", objects_path=temp_objects_path)
+grep_objects("example", objects_path=temp_objects_path)
+
+list_objects(objects_path=temp_objects_path)
+
 }
 \seealso{
 Other jamsession objects: 

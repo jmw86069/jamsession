@@ -82,12 +82,8 @@ will load the most recent object by \code{save_date} where any
 ties prefer the order in \code{objects_path}. Similarly,
 \code{load_object("my_favorite_object")} does the same thing,
 without the grep_patten search step.
-}
-\examples{
-grep_objects(".");
 
-grep_objects("df");
-
+See \code{save_object()} for examples.
 }
 \seealso{
 Other jamsession objects: 

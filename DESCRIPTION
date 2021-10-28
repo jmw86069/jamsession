@@ -1,6 +1,6 @@
 Package: jamsession
 Title: Store and recall R sessions, objects, functions using a central location
-Version: 0.0.1.9000
+Version: 0.0.2.9000
 Authors@R: person(given="James M.", family="Ward",
     email="jmw86069@gmail.com", role=c("aut", "cre"))
 Description: Store and re-ue R sessions and R objects in a central
@@ -18,5 +18,5 @@ Remotes: github::jmw86069/jamba
 URL: http://github.com/jmw86069/jamsession
 BugReports: http://github.com/jmw86069/jamsession/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr

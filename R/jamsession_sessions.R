@@ -199,6 +199,8 @@ list_jamsessions <- function
 #'    stats for each session: `number_saved` is the number of past versions
 #'    of the session; `total_size` is the total file size for all saved
 #'    versions.
+#' @param remove_pattern,replacement arguments passed to
+#'    `clean_jamsession_name()`.
 #' @param verbose `logical` indicating whether to print verbose output.
 #' @param ... additional arguments are passed to `list_jamessions()`, and
 #'    `jamba::provigrep()`, as relevent. If `session_prefix` or
@@ -217,6 +219,8 @@ grep_jamsessions <- function
  most_recent=TRUE,
  include_attrs=FALSE,
  add_stats=FALSE,
+ remove_pattern=NULL,
+ replacement=NULL,
  verbose=FALSE,
  ...)
 {
@@ -226,6 +230,15 @@ grep_jamsessions <- function
       most_recent=most_recent,
       add_stats=add_stats,
       ...)$session_df;
+
+   ## alter the input pattern using clean_jamsession_name()
+   pattern <- clean_jamsession_name(pattern,
+      remove_pattern=remove_pattern,
+      replacement=".");
+   if (verbose) {
+      jamba::printDebug("grep_jamsessions(): ",
+         "pattern:", pattern);
+   }
 
    ## use jamba::provigrep() to enable multiple grep patterns
    session_grep_v <- jamba::provigrep(patterns=pattern,
@@ -390,7 +403,7 @@ load_jamsession <- function
                   save_date));
          }
       }
-   } else if (is.atomic(session)) {
+   } else if (is.atomic(session) && c("character") %in% class(session)) {
       session_df <- grep_jamsessions(pattern=session,
          return_df=TRUE,
          sessions_path=sessions_path,
@@ -591,9 +604,11 @@ save_jamsession <- function
  do_prompt=TRUE,
  do_window_title=TRUE,
  save_history=TRUE,
- envir=.GlobalEnv,
+ envir=globalenv(),
  session_prefix="inProgress_",
  session_suffix=".RData",
+ save_objectlist=TRUE,
+ objectlist_suffix=".objectlist.txt",
  verbose=TRUE,
  ...)
 {
@@ -614,7 +629,9 @@ save_jamsession <- function
    ##
 
    ## Remove some extraneous characters
-   session1 <- gsub("[._ /\\]+", "-", session);
+   session1 <- gsub("[._ /\\]+",
+      "-",
+      session);
    if (!session1 == session) {
       jamba::printDebug("save_jamsession(): ",
          c("session changed from '",
@@ -637,8 +654,20 @@ save_jamsession <- function
    }
 
    ## remove regular expression patterns if present
-   session_prefix <- gsub("^[\\^]|[[]|]", "", session_prefix);
-   session_suffix <- gsub("[[]|]|[$]", "", session_suffix);
+   remove_regexp <- function(x){
+      gsub("^[\\^]|[[]|]",
+         "",
+         x)
+   }
+   session_prefix <- remove_regexp(session_prefix);
+   session_suffix <- remove_regexp(session_suffix);
+   objectlist_suffix <- remove_regexp(objectlist_suffix);
+
+   ## save objectlist
+   objectlist <- jamba::mixedSort(
+      ls(all.names=TRUE,
+         envir=envir,
+         sorted=FALSE));
 
    ## iterate session_path to use the first writeable directory
    for (use_session_path in sessions_path) {
@@ -652,8 +681,7 @@ save_jamsession <- function
          session_suffix);
       save_success <- tryCatch({
          save(
-            list=ls(all.names=TRUE,
-               envir=envir),
+            list=objectlist,
             file=session_file,
             envir=envir);
          TRUE
@@ -677,6 +705,26 @@ save_jamsession <- function
          session_file);
    }
 
+   # save objectlist
+   if (save_objectlist) {
+      objectlist_file <- paste0(
+         path.expand(use_session_path),
+         "/",
+         session_prefix,
+         session,
+         "_",
+         save_date,
+         objectlist_suffix);
+      utils::write.table(
+         x=data.frame(objectlist),
+         file=objectlist_file,
+         sep="\t",
+         quote=FALSE,
+         row.names=FALSE,
+         col.names=FALSE);
+   }
+
+   # save history
    if (save_history && interactive()) {
       ## define historyFile based upon sessionFile
       history_file <- gsub(paste0(session_suffix, "$"),
@@ -756,3 +804,92 @@ show_session_versions <- function
    }
    sdf;
 }
+
+#' Clean jamsession name prior to saving an output file
+#'
+#' Clean jamsession name prior to saving an output file
+#'
+#' This function is intended to take an R session name as a character
+#' string, and will replace unwanted characters with a fixed string,
+#' by default underscore `"_"`. The `remove_pattern` and the
+#' `replacement` are configurable if needed.
+#'
+#' @param x `character` string representing a jam session name.
+#' @param remove_pattern `character` string regular expression pattern
+#'    passed to `gsub()` to define portions of `x` to be replaced.
+#' @param replacement `character` string replacement, recommended to be
+#'    a single character.
+#' @param ... additional arguments are passed to `gsub()`.
+#'
+#' @export
+clean_jamsession_name <- function
+(x,
+ remove_pattern="[._'\" /\\]+",
+ replacement="_",
+ verbose=FALSE,
+ ...)
+{
+   if (length(x) == 0) {
+      return(x);
+   }
+   # validate input arguments, when NULL use the function formal arguments
+   if (length(remove_pattern) == 0) {
+      remove_pattern <- eval(formals(clean_jamsession_name)$remove_pattern);
+   }
+   if (length(replacement) == 0) {
+      replacement <- eval(formals(clean_jamsession_name)$replacement);
+   }
+
+   if (verbose) {
+      jamba::printDebug("clean_jamsession_name(): ",
+         "remove_pattern:", remove_pattern);
+      jamba::printDebug("clean_jamsession_name(): ",
+         "replacement:", replacement);
+   }
+
+   # substitute characters in remove_pattern with replacement
+   x <- gsub(remove_pattern,
+      replacement,
+      x,
+      ...);
+
+   # remove leading and trailing replacement
+   # convert certain wildcards to non-wildcard form
+   replacement_strict <- gsub(
+      "([.*+])",
+      "[\\1]",
+      replacement);
+   x <- gsub(
+      paste0("^(", replacement_strict,
+         ")+|(",
+         replacement_strict, ")+$"),
+      "",
+      x);
+
+   # remove duplicate replacement
+   x <- gsub(
+      paste0("(", replacement_strict, ")+"),
+      replacement,
+      x);
+
+   x;
+}
+
+
+#' Return objectlist for a jamsession
+#'
+#' @export
+# objectlist_jamsession <- function
+# (session,
+#  sessions_path=jamsession_paths()$sessions,
+#  save_date=NULL,
+#  envir=globalenv(),
+#  assign_session=TRUE,
+#  load_history=TRUE,
+#  do_window_title=TRUE,
+#  do_prompt=TRUE,
+#    objectlist_suffix=".objectlist.txt",
+#    verbose=TRUE,
+#  ...)
+# {
+# }

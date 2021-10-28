@@ -13,9 +13,11 @@ save_jamsession(
   do_prompt = TRUE,
   do_window_title = TRUE,
   save_history = TRUE,
-  envir = .GlobalEnv,
+  envir = globalenv(),
   session_prefix = "inProgress_",
   session_suffix = ".RData",
+  save_objectlist = TRUE,
+  objectlist_suffix = ".objectlist.txt",
   verbose = TRUE,
   ...
 )

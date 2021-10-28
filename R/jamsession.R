@@ -82,22 +82,55 @@ NULL
 #' R object is saved to the first directory that allows the file
 #' to be saved successfully.
 #'
-#' @return invisible file path loaded
+#' @return `character` string with the file path where the
+#'    R object data is stored.
 #'
 #' @family jamsession objects
 #'
-#' @param object_list character vector of object names to save, typically only
-#'    one value.
-#' @param save_date character date string to use when naming the file, typically
-#'    the current date is used.
+#' @param object_list `character` vector with one or more R object
+#'    names to save. The typical workflow stores only one object per
+#'    file. We recommend storing multiple objects into one file only
+#'    when those objects are only useful together, and using only one
+#'    object would be insufficient or lack enough context for full re-use.
+#' @param save_date character date string to use when naming the file.
+#'    By default, the current date is used via the function
+#'    `jamba::getDate()`, however to use a custom date format any
+#'    text string can be used here.
 #' @param objects_path character vector of one or more file paths to
 #'    search for saved R objects. When `objects_path=NULL`, it uses
-#'    the output from `jamsession_paths()$objects`.
-#' @param object_notes_list character vector of optional notes associated with
-#'    the R object. Intended as a crude way to allow describing an object.
-#' @param do_file_info logical whether to print information about the saved
-#'    .RData file, for example including the size.
+#'    the output from `jamsession_paths()$objects`. The process will
+#'    try to save the `.RData` file in each path in `objects_path`
+#'    in order, and will use the first successful attempt. For example
+#'    if two paths are supplied, and the first path is not accessible
+#'    or not user-writeable, the second path will be attempted.
+#'    If no paths are user-writeable, this function will `stop()`.
+#' @param object_notes_list `character` vector or `list` of `character`
+#'    vectors that contain optional notes associated with the R object(s).
+#'    This mechanism is intended as a crude way to store text information
+#'    associated with the stored R objects. For example, one could store
+#'    a short text description of how to R objects were created, or some
+#'    other useful information. This process is currently experimental,
+#'    and may be refactored in future to have a more consistent workflow.
+#' @param do_file_info `logical` indicating whether to print information
+#'    about the saved `.RData` file, which includes the stored file
+#'    size and path.
+#' @param object_suffix `character` string used as the file extension,
+#'    by default `".RData"`. This value should probably never change,
+#'    but it is possible to change here.
 #' @param envir the environment from which to obtain the R object.
+#' @param verbose `logical` indicating whether to print verbose output.
+#' @param ... additional arguments are ignored.
+#'
+#' @examples
+#' temp_objects_path <- file.path(tempdir(), "R-objects");
+#' if (!dir.exists(temp_objects_path)) {
+#'    dir.create(temp_objects_path)
+#' }
+#' example_df <- data.frame(name=LETTERS[1:5], values=letters[1:5])
+#' save_object("example_df", objects_path=temp_objects_path)
+#' grep_objects("example", objects_path=temp_objects_path)
+#'
+#' list_objects(objects_path=temp_objects_path)
 #'
 #' @export
 save_object <- function
@@ -132,13 +165,13 @@ save_object <- function
 
    ## iterate session_path to use the first writeable directory
    for (use_object_path in objects_path) {
-      object_file_name <- paste0(
+      object_file_name <- file.path(
          use_object_path,
-         "/",
-         object_list_name,
-         "_",
-         save_date,
-         ".RData");
+         paste0(
+            object_list_name,
+            "_",
+            save_date,
+            ".RData"));
       save_success <- tryCatch({
          save(
             list=object_list,
@@ -170,13 +203,12 @@ save_object <- function
 
    ## Save object notes if provided
    if (length(object_notes_list) > 0) {
-      object_notes_file_name <- paste0(
+      object_notes_file_name <- file.path(
          use_object_path,
-         "/",
-         object_list_name,
-         "_",
-         save_date,
-         "_notes.txt");
+         paste0(object_list_name,
+            "_",
+            save_date,
+            "_notes.txt"));
       object_notes_df <- data.frame(check.names=FALSE,
          object_attr_type=c("object_list_name",
             rep("object_name", length(unlist(object_list))),
@@ -370,7 +402,7 @@ list_objects <- function
    }
 
    return(list(object_df=object_df,
-      object=unique(object_df$object_name)))
+      object=unique(object_df$object)))
 }
 
 #' search for saved R objects
@@ -397,6 +429,8 @@ list_objects <- function
 #' ties prefer the order in `objects_path`. Similarly,
 #' `load_object("my_favorite_object")` does the same thing,
 #' without the grep_patten search step.
+#'
+#' See `save_object()` for examples.
 #'
 #' @return `data.frame` when `return_df=TRUE`; `character vector`
 #'    when `return_df=FALSE`. The returned data will contain `object`
@@ -432,10 +466,6 @@ list_objects <- function
 #' @param verbose logical whether to print verbose output
 #' @param ... additional arguments are passed to `grepl()`.
 #'
-#' @examples
-#' grep_objects(".");
-#'
-#' grep_objects("df");
 #'
 #' @export
 grep_objects <- function
@@ -697,13 +727,12 @@ load_object <- function
       object_names_list <- c(object_names_list, object_name_list);
 
       ## If object notes exist, load that file
-      object_notes_file_name <- paste0(
+      object_notes_file_name <- file.path(
          object_df$object_path[irow],
-         "/",
-         object_df$object[irow],
-         "_",
-         object_df$save_date[irow],
-         "_notes.txt");
+         paste0(object_df$object[irow],
+            "_",
+            object_df$save_date[irow],
+            "_notes.txt"));
       if (file.exists(object_notes_file_name)) {
          object_notes_df <- utils::read.table(object_notes_file_name,
             sep="\t",
@@ -715,8 +744,10 @@ load_object <- function
             comment.char="",
             header=TRUE,
             stringsAsFactors=FALSE);
-         object_name_list1 <- subset(object_notes_df, object_notes_df[[1]] %in% c("object_name","objectName"))[,2];
-         object_notes_list <- subset(object_notes_df, object_notes_df[[1]] %in% c("object_notes","objectNotes"))[,2];
+         object_name_list1 <- subset(object_notes_df,
+            object_notes_df[[1]] %in% c("object_name","objectName"))[,2];
+         object_notes_list <- subset(object_notes_df,
+            object_notes_df[[1]] %in% c("object_notes","objectNotes"))[,2];
          object_notes_df_use <- data.frame(check.names=FALSE,
             stringsAsFactors=FALSE,
             "object"=object_name_list1,
