@@ -1,13 +1,16 @@
 # jamsession TODO
 
+## 06jun2022
+
+Consider `grep_functions()` to be consistent with `grep_jamsessions()`
+and `grep_objects()`.
+
+
 ## 28oct2021 - R objects
 
 The `save_object()` mechanism should allow saving multiple objects,
 similar to saving an R session with a corresponding `"objectlist.txt"`
 file with the objects saved.
-
-
-## 28oct2021 - R sessions
 
 New idea: optionally check objects for size before saving session?
 If any objects are greater than 500MB it could exit with a warning.

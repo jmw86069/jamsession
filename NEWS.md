@@ -1,3 +1,12 @@
+# version 0.0.3.900
+
+## changes to existing functions / bug fixes
+
+* `refresh_functions()` was not matching exact start of the filename,
+allowing suffix matches to the expected filename, for example `"DM"`
+matched `"DM"` and `"JDM"`. It was updated to force match to the full
+filename, which is the intended behavior.
+
 # version 0.0.2.900
 
 ## changes to existing functions

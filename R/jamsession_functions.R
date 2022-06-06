@@ -56,6 +56,10 @@
 #' Note that on some linux systems, temporary files not accessed for
 #' more than 7 days may be deleted automatically.
 #'
+#' Note that multiple files can be used as input to `session`, in which
+#' case the `pkg_name` argument can be used to define a specific package
+#' name for the full collection of R functions in the files.
+#'
 #' @family jamsession functions
 #'
 #' @param session `character` vector of one or more function files
@@ -149,9 +153,16 @@ refresh_functions <- function
    ## Process one or more session input values
    fn_files <- lapply(session, function(isession){
       fn_file <- list.files(path=functions_path,
-         pattern=paste0(isession,
+         pattern=paste0("^",
+            isession,
             fn_pattern),
          full.names=TRUE);
+      if (verbose > 1) {
+         jamba::printDebug("refresh_functions(): ",
+            "fn_file matched: ",
+            collapse="\n",
+            fn_file)
+      }
       if (length(fn_file) == 0) {
          stop(paste0("Function file not found for: '",
             isession,

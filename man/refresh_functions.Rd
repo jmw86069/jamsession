@@ -120,6 +120,10 @@ directory, it assumes that when \code{use_tempdir} is defined by
 \code{base::tempdir()}, see that function help for more information.
 Note that on some linux systems, temporary files not accessed for
 more than 7 days may be deleted automatically.
+
+Note that multiple files can be used as input to \code{session}, in which
+case the \code{pkg_name} argument can be used to define a specific package
+name for the full collection of R functions in the files.
 }
 \examples{
 # create two temporary functions
