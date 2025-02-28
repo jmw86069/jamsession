@@ -85,7 +85,7 @@ list_jamsessions <- function
          session=character(0)));
    }
 
-   session_file_info <- jamba::fileInfo(session_files);
+   session_file_info <- fileInfo(session_files);
    session_file_size <- session_file_info[,"size"];
    session_file_bytes <- file.info(session_files)$size;
 

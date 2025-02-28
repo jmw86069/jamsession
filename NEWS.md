@@ -1,3 +1,16 @@
+# version 0.0.4.900
+
+## new functions
+
+* `fileInfo()` moved from jamba for time being, since jamba removed it
+prior to CRAN release.
+
+## bug fixes
+
+* Replaced `jamba::fileInfo()` with local `fileInfo()` due to jamba
+change prior to its CRAN release.
+
+
 # version 0.0.3.900
 
 ## changes to existing functions / bug fixes

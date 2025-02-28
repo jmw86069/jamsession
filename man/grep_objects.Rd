@@ -87,6 +87,7 @@ See \code{save_object()} for examples.
 }
 \seealso{
 Other jamsession objects: 
+\code{\link{fileInfo}()},
 \code{\link{list_objects}()},
 \code{\link{load_object}()},
 \code{\link{save_object}()}

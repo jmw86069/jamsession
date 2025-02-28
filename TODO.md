@@ -2,8 +2,10 @@
 
 ## 06jun2022
 
-Consider `grep_functions()` to be consistent with `grep_jamsessions()`
+* Consider `grep_functions()` to be consistent with `grep_jamsessions()`
 and `grep_objects()`.
+* `grep_sessions()` should have argument `save_date` to be consistent
+with `load_session()` which allows loading a specific date.
 
 
 ## 28oct2021 - R objects

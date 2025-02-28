@@ -105,6 +105,7 @@ list_objects(objects_path=temp_objects_path)
 }
 \seealso{
 Other jamsession objects: 
+\code{\link{fileInfo}()},
 \code{\link{grep_objects}()},
 \code{\link{list_objects}()},
 \code{\link{load_object}()}

@@ -197,7 +197,7 @@ save_object <- function
             object_file_name),
          sep="");
       if (do_file_info) {
-         print(jamba::fileInfo(object_file_name));
+         print(fileInfo(object_file_name));
       }
    }
 
@@ -326,7 +326,7 @@ list_objects <- function
          object=character(0)));
    }
 
-   object_file_info <- jamba::fileInfo(object_files);
+   object_file_info <- fileInfo(object_files);
    object_file_size <- object_file_info[,"size"];
    object_file_bytes <- file.info(object_files)$size;
 

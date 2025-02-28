@@ -80,6 +80,7 @@ list_objects(most_recent=TRUE, add_stats=TRUE);
 }
 \seealso{
 Other jamsession objects: 
+\code{\link{fileInfo}()},
 \code{\link{grep_objects}()},
 \code{\link{load_object}()},
 \code{\link{save_object}()}

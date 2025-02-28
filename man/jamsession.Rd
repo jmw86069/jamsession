@@ -2,6 +2,7 @@
 % Please edit documentation in R/jamsession.R
 \docType{package}
 \name{jamsession}
+\alias{jamsession-package}
 \alias{jamsession}
 \title{jamsession: manage R sessions, R objects, and R functions}
 \description{
@@ -44,4 +45,16 @@ space. The mechanism here will load functions into their own R
 environment, whose parent environment is .GlobalEnv to allow functions
 to be in the usual R function search space.}
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://github.com/jmw86069/jamsession}
+  \item Report bugs at \url{http://github.com/jmw86069/jamsession/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: James M. Ward \email{jmw86069@gmail.com}
+
 }

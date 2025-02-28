@@ -115,6 +115,7 @@ print(loaded);
 }
 \seealso{
 Other jamsession objects: 
+\code{\link{fileInfo}()},
 \code{\link{grep_objects}()},
 \code{\link{list_objects}()},
 \code{\link{save_object}()}
