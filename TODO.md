@@ -1,5 +1,46 @@
 # jamsession TODO
 
+## 14apr2025
+
+* Add missing dependencies: usethis, roxygen2, farver (?).
+Verify if others are needed.
+
+## 03apr2025
+
+* `refresh_functions()`
+
+   * `verbose=FALSE` should wrap `suppressMessages()` to silence
+   `usethis::create_package()` or whatever step is using `message()`.
+   * Consider option to use any file without the "_functions.R" suffix.
+
+* Add `grep_functions()`
+* Bonus points? `save_functions()`?
+
+   * provide `character` vector of function names
+   * all function sources are saved into an R file for editing.
+   * If somehow the functions have help text, it can be converted
+   to text with: `tools::Rd2txt(utils:::.getHelpFile(help("sd")))`,
+   see `Rd2roxygen` package to convert to proper roxygen format.
+   
+   ```
+   sd_rd <- utils:::.getHelpFile(help("sd"))
+   # iterate each entry
+   rdlinelist <- lapply(seq_along(sd_rd), function(i){
+      paste0(paste0(tools:::as.character.Rd(sd_rd[i]), collapse=""), "\n")
+   })
+   rdlines <- unlist(strsplit(unlist(rdlinelist), "\n"))
+   options(roxygen.comment = "#' ")
+   roxy1 <- Rd2roxygen::create_roxygen(Rd2roxygen::parse_file(textConnection(rdlines)))
+   roxy2 <- Rd2roxygen::create_roxygen(Rd2roxygen::parse_file(textConnection(unlist(rdlinelist))))
+   identical(roxy1, roxy2)
+   ```
+
+* Make paths by default also look in current working directory?
+
+   * Consider option to enable working dir (somehow) so that
+   working directory can be checked first when loading,
+   and optionally used last when saving?
+
 ## 06jun2022
 
 * Consider `grep_functions()` to be consistent with `grep_jamsessions()`
