@@ -1,3 +1,11 @@
+# version 0.0.5.900
+
+## updates
+
+* DESCRIPTION was updated to use jamba on CRAN and not Github.
+Minor author update.
+* Added LICENSE, LICENSE.md files, updated License in DESCRIPTION.
+
 # version 0.0.4.900
 
 ## new functions
