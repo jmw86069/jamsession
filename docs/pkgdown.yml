@@ -1,7 +1,9 @@
-pandoc: 2.9.2.1
-pkgdown: 1.6.1
+pandoc: 3.7.0.2
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   jamsession-vignette: jamsession-vignette.html
-last_built: 2021-02-26T16:51Z
-
+last_built: 2025-11-17T22:56Z
+urls:
+  reference: https://jmw86069.github.io/jamsession/reference
+  article: https://jmw86069.github.io/jamsession/articles

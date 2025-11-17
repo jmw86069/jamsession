@@ -25,7 +25,11 @@ print_pkg_description("base")
 
 }
 \seealso{
-Other jamsession utilities: 
-\code{\link{jamsession_paths}()}
+Other jamsession internals: 
+\code{\link{clean_jamsession_name}()},
+\code{\link{fileInfo}()},
+\code{\link{list_functions}()},
+\code{\link{list_jamsessions}()},
+\code{\link{list_objects}()}
 }
-\concept{jamsession utilities}
+\concept{jamsession internals}

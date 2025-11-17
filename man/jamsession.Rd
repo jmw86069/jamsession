@@ -49,12 +49,13 @@ to be in the usual R function search space.}
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://github.com/jmw86069/jamsession}
+  \item \url{https://jmw86069.github.io/jamsession/}
   \item Report bugs at \url{http://github.com/jmw86069/jamsession/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: James M. Ward \email{jmw86069@gmail.com}
+\strong{Maintainer}: James M. Ward \email{jmw86069@gmail.com} (\href{https://orcid.org/0000-0002-9510-2848}{ORCID}) [copyright holder]
 
 }
+\keyword{internal}

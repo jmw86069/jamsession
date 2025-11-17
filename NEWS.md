@@ -1,3 +1,24 @@
+# version 0.0.6.900
+
+* Added dependencies: roxygen2, usethis, withr.
+
+## new functions
+
+* `grep_functions()` to search for available functions files, suitable
+to use with `refresh_functions()`.
+* `list_functions()` called by `grep_functions()`.
+* `list_functions_exports()` will intuit the exported functions from
+a specific 'functions' file, useful to see what is provided from a
+functions R file. It only works with functions using roxygen2 style
+`#' @exports`, in order to avoid having to parse the file as valid R code.
+
+## changes to existing functions
+
+* `list_jamsessions()` now returns sessions sorted by date then name.
+* `load_session()`, `save_session()` now check whether functions exist,
+`quartz.options()`, `X11.options()`, `windows.options()` before attempting
+to set the title.
+
 # version 0.0.5.900
 
 ## updates

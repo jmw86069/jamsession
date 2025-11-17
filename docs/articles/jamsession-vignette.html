@@ -4,282 +4,309 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Introduction to jamsession • jamsession</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to jamsession">
-<meta property="og:description" content="jamsession">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to jamsession">
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">jamsession</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/jamsession-vignette.html">Introduction to jamsession</a>
-    </li>
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+
+    <a class="navbar-brand me-2" href="../index.html">jamsession</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/jamsession-vignette.html">Introduction to jamsession</a></li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="http://github.com/jmw86069/jamsession/">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="http://github.com/jmw86069/jamsession/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
+</nav><div class="container template-article">
 
-      
 
-      </header><script src="jamsession-vignette_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Introduction to jamsession</h1>
-                        <h4 class="author">James M. Ward</h4>
+
+
+<div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+
+      <h1>Introduction to jamsession</h1>
+                        <h4 data-toc-skip class="author">James M.
+Ward</h4>
             
-            <h4 class="date">2021-02-26</h4>
+            <h4 data-toc-skip class="date">2025-11-17</h4>
       
-      <small class="dont-index">Source: <a href="http://github.com/jmw86069/jamsession/blob/master/vignettes/jamsession-vignette.Rmd"><code>vignettes/jamsession-vignette.Rmd</code></a></small>
-      <div class="hidden name"><code>jamsession-vignette.Rmd</code></div>
-
+      <small class="dont-index">Source: <a href="http://github.com/jmw86069/jamsession/blob/HEAD/vignettes/jamsession-vignette.Rmd" class="external-link"><code>vignettes/jamsession-vignette.Rmd</code></a></small>
+      <div class="d-none name"><code>jamsession-vignette.Rmd</code></div>
     </div>
 
     
     
-<div id="introduction-to-jamsession" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction-to-jamsession" class="anchor"></a>Introduction to jamsession</h1>
-<p>The jamsession package and functions are motived primarily to make your (my) analysis workflows as efficient as possible. They start with the simple idea of storing certain information in a central location, partly because it makes it easier to find months or years later. This workflow also works well if more often than not, you have multiple R sessions open and active, since these functions add the project name to the R prompt.</p>
-<p>The R session and object files are versioned with the date, which has been an appropriate level of granularity, as well as being useful information when returning to work on past projects.</p>
-<p>That said, this package mainly focuses on three aspects of R analysis work:</p>
-<div id="r-sessions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#r-sessions" class="anchor"></a>R sessions</h3>
-<p>This package stores and loads R sessions via .RData files from one stored location. These methods are useful are when analyzing data on different projects, where one may be asked to review data or results from projects years after the initial analysis. The methods here also store the R command history, which can be helpful when picking up where one left off.</p>
-<p>Saving or loading an R session also sets the R prompt to the project name, which is particularly helpful when multiple R sessions are open an active at once.</p>
+<div class="section level2">
+<h2 id="introduction-to-jamsession">Introduction to jamsession<a class="anchor" aria-label="anchor" href="#introduction-to-jamsession"></a>
+</h2>
+<p>The jamsession package and functions are motived primarily to make
+your (my) analysis workflows as efficient as possible. They start with
+the simple idea of storing certain information in a central location,
+partly because it makes it easier to find months or years later. This
+workflow also works well if more often than not, you have multiple R
+sessions open and active, since these functions add the project name to
+the R prompt.</p>
+<p>The R session and object files are versioned with the date, which has
+been an appropriate level of granularity, as well as being useful
+information when returning to work on past projects.</p>
+<p>That said, this package mainly focuses on three aspects of R analysis
+work:</p>
+<div class="section level4">
+<h4 id="r-sessions">R sessions<a class="anchor" aria-label="anchor" href="#r-sessions"></a>
+</h4>
+<p>This package stores and loads R sessions via .RData files from one
+stored location. These methods are useful are when analyzing data on
+different projects, where one may be asked to review data or results
+from projects years after the initial analysis. The methods here also
+store the R command history, which can be helpful when picking up where
+one left off.</p>
+<p>Saving or loading an R session also sets the R prompt to the project
+name, which is particularly helpful when multiple R sessions are open an
+active at once.</p>
 </div>
-<div id="r-objects" class="section level3">
-<h3 class="hasAnchor">
-<a href="#r-objects" class="anchor"></a>R objects</h3>
-<p>This package also stored individual R objects in their own central location, in order to make it efficient to save and load objects in any R session, regardless the project or current working directory.</p>
+<div class="section level4">
+<h4 id="r-objects">R objects<a class="anchor" aria-label="anchor" href="#r-objects"></a>
+</h4>
+<p>This package also stored individual R objects in their own central
+location, in order to make it efficient to save and load objects in any
+R session, regardless the project or current working directory.</p>
 </div>
-<div id="r-functions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#r-functions" class="anchor"></a>R functions</h3>
-<p>This package allows a clean mechanism of using a helper R script with functions to load and reload for active analysis use. Doing so minimizes copy-paste into active consoles, including via Rstudio, but also keeps function code in their own environment instead of the global environment. When stored in the global environment, the function code is saved along with the R session, which may not be desirable especially when using a large set of helper functions.</p>
+<div class="section level4">
+<h4 id="r-functions">R functions<a class="anchor" aria-label="anchor" href="#r-functions"></a>
+</h4>
+<p>This package allows a clean mechanism of using a helper R script with
+functions to load and reload for active analysis use. Doing so minimizes
+copy-paste into active consoles, including via Rstudio, but also keeps
+function code in their own environment instead of the global
+environment. When stored in the global environment, the function code is
+saved along with the R session, which may not be desirable especially
+when using a large set of helper functions.</p>
 </div>
-<div id="motivations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#motivations" class="anchor"></a>Motivations</h2>
+<div class="section level3">
+<h3 id="motivations">Motivations<a class="anchor" aria-label="anchor" href="#motivations"></a>
+</h3>
 <p>Some motivations for this package:</p>
 <ul>
-<li>make it efficient to find past R sessions and R objects by name, without the need to traverse down a nested file directory structure</li>
-<li>make stored sessions and objects versioned by date, rather than using only the project or object name, and not needing to increment a version number every time a file is saved</li>
-<li>provide a quick way to save and load R objects across different R sessions, to share useful objects in a structured, repeatable way</li>
-<li>provide a clean method to load R functions from a separate file, to avoid having to copy-paste functions inside an R script, and to avoid R functions becoming part of the environment</li>
+<li>make it efficient to find past R sessions and R objects by name,
+without the need to traverse down a nested file directory structure</li>
+<li>make stored sessions and objects versioned by date, rather than
+using only the project or object name, and not needing to increment a
+version number every time a file is saved</li>
+<li>provide a quick way to save and load R objects across different R
+sessions, to share useful objects in a structured, repeatable way</li>
+<li>provide a clean method to load R functions from a separate file, to
+avoid having to copy-paste functions inside an R script, and to avoid R
+functions becoming part of the environment</li>
 </ul>
 </div>
-<div id="basic-r-session-workflow" class="section level2">
-<h2 class="hasAnchor">
-<a href="#basic-r-session-workflow" class="anchor"></a>Basic R session workflow</h2>
-<p>When starting a new project in a new R console, it is helpful to initiate the environment with the project name, by saving a new session. By default, <code>session</code> will be defined during this step, and the R prompt will change to display the <code>session</code>.</p>
+<div class="section level3">
+<h3 id="basic-r-session-workflow">Basic R session workflow<a class="anchor" aria-label="anchor" href="#basic-r-session-workflow"></a>
+</h3>
+<p>When starting a new project in a new R console, it is helpful to
+initiate the environment with the project name, by saving a new session.
+By default, the R prompt will change to display the
+<code>session</code>.</p>
 <blockquote>
-<p>Note that we add the argument <code>sessions_path=tempdir()</code> only for this vignette, in typical use this argument is not used, because R sessions are stored in one location.</p>
+<p>Note that we add the argument <code>sessions_path=tempdir()</code>
+only for this vignette, in typical use this argument is not used,
+because R sessions are stored in one location.</p>
 </blockquote>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/jmw86069/jamsession">jamsession</a></span><span class="op">)</span>;
-<span class="va">some_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>A<span class="op">=</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span>;
-<span class="fu"><a href="../reference/save_jamsession.html">save_jamsession</a></span><span class="op">(</span><span class="st">"jamsessionVignette"</span>,
-   sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##------ Fri Feb 26 11:51:47 2021 ------##</span>
-<span class="co">#&gt; ##  (11:51:47) 26Feb2021:  save_jamsession(): Saved jamsession 'jamsessionVignette' to sessions_path '/var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg' </span>
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  save_jamsession(): session_file:/var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg/inProgress_jamsessionVignette_26feb2021.RData</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">session</span><span class="op">)</span>;
-<span class="co">#&gt; [1] "jamsessionVignette"</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jmw86069.github.io/jamsession/">jamsession</a></span><span class="op">)</span>;</span>
+<span><span class="va">some_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>A<span class="op">=</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span>;</span>
+<span><span class="fu"><a href="../reference/save_jamsession.html">save_jamsession</a></span><span class="op">(</span><span class="st">"jamsessionVignette"</span>,</span>
+<span>   sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; ##------ Mon Nov 17 17:56:31 2025 ------##</span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:31</span>) 17Nov2025:   <span style="color: #FF8700;">save_jamsession(): </span><span style="color: #00AFFF;">Saved jamsession '</span><span style="color: #87D7FF;">jamsessionVignette</span><span style="color: #00AFFF;">' to sessions_path '</span><span style="color: #87D7FF;">C:\Users\JAMES~1.WAR\AppData\Local\Temp\RtmpSSHQA4</span><span style="color: #00AFFF;">'</span> </span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:31</span>) 17Nov2025:   <span style="color: #FF8700;">save_jamsession(): </span><span style="color: #00AFFF;">session_file:</span><span style="color: #FF8700;">C:\Users\JAMES~1.WAR\AppData\Local\Temp\RtmpSSHQA4/inProgress_jamsessionVignette_17nov2025.RData</span></span></span></code></pre></div>
 <p>You may then do some work and wish to save your session:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">90</span><span class="op">)</span>;
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol<span class="op">=</span><span class="fl">9</span>, data<span class="op">=</span><span class="va">x</span><span class="op">)</span>;
-<span class="co">## Usually only run like this:</span>
-<span class="co"># save_jamsession();</span>
-
-<span class="co">## For this vignette we add sessions_path</span>
-<span class="fu"><a href="../reference/save_jamsession.html">save_jamsession</a></span><span class="op">(</span>sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##------ Fri Feb 26 11:51:48 2021 ------##</span>
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  save_jamsession(): Saved jamsession 'jamsessionVignette' to sessions_path '/var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg' </span>
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  save_jamsession(): session_file:/var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg/inProgress_jamsessionVignette_26feb2021.RData</span></pre></div>
-<p>You can later start R and pick up where you left off, which is simulated here by removing these objects, then loading the session:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>;
-<span class="fu"><a href="../reference/load_jamsession.html">load_jamsession</a></span><span class="op">(</span><span class="st">"jamsessionVignette"</span>,
-   sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  load_jamsession(): Loading session: /var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg/inProgress_jamsessionVignette_26feb2021.RData </span>
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  load_jamsession(): Loaded session:jamsessionVignette into environment 'R_GlobalEnv' </span>
-<span class="co">#&gt; ##  (11:51:48) 26Feb2021:  load_jamsession(): jamba::setPrompt()</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt;            [,1]       [,2]       [,3]       [,4]       [,5]       [,6]</span>
-<span class="co">#&gt; [1,] -0.1746496  1.2632106  0.1421545 -2.0290540  1.1963749 -0.3291158</span>
-<span class="co">#&gt; [2,]  0.6678865 -0.6171401  2.0941790  0.7411257 -0.9824536  1.0532583</span>
-<span class="co">#&gt; [3,] -0.5410615  0.2788621  0.6639901 -0.3473734 -1.1362320  0.2973083</span>
-<span class="co">#&gt; [4,] -0.1960676  0.1699450  0.4345637 -0.6412012  0.8496156 -0.5059457</span>
-<span class="co">#&gt; [5,]  0.8404091 -0.8303865 -0.1707804  0.5531530 -0.2820454  0.1809520</span>
-<span class="co">#&gt; [6,] -1.1545893  0.4513572  0.2015576  0.1701800 -1.1425453  0.3062582</span>
-<span class="co">#&gt;             [,7]      [,8]         [,9]</span>
-<span class="co">#&gt; [1,] -1.14345053 0.8983498 -0.231920320</span>
-<span class="co">#&gt; [2,]  0.59193888 0.1874275 -1.875015455</span>
-<span class="co">#&gt; [3,] -1.12590604 0.3010680 -0.005386849</span>
-<span class="co">#&gt; [4,] -1.68921139 0.9326318 -0.475984069</span>
-<span class="co">#&gt; [5,]  0.99822743 0.3392999  0.151604623</span>
-<span class="co">#&gt; [6,] -0.09326957 0.8738715  1.239727053</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">90</span><span class="op">)</span>;</span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>ncol<span class="op">=</span><span class="fl">9</span>, data<span class="op">=</span><span class="va">x</span><span class="op">)</span>;</span>
+<span><span class="co">## Usually only run like this:</span></span>
+<span><span class="co"># save_jamsession();</span></span>
+<span></span>
+<span><span class="co">## For this vignette we add sessions_path</span></span>
+<span><span class="fu"><a href="../reference/save_jamsession.html">save_jamsession</a></span><span class="op">(</span><span class="st">"jamsessionVignette"</span>,</span>
+<span>   sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; ##------ Mon Nov 17 17:56:31 2025 ------##</span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:31</span>) 17Nov2025:   <span style="color: #FF8700;">save_jamsession(): </span><span style="color: #00AFFF;">Saved jamsession '</span><span style="color: #87D7FF;">jamsessionVignette</span><span style="color: #00AFFF;">' to sessions_path '</span><span style="color: #87D7FF;">C:\Users\JAMES~1.WAR\AppData\Local\Temp\RtmpSSHQA4</span><span style="color: #00AFFF;">'</span> </span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">save_jamsession(): </span><span style="color: #00AFFF;">session_file:</span><span style="color: #FF8700;">C:\Users\JAMES~1.WAR\AppData\Local\Temp\RtmpSSHQA4/inProgress_jamsessionVignette_17nov2025.RData</span></span></span></code></pre></div>
+<p>You can later start R and pick up where you left off, which is
+simulated here by removing these objects, then loading the session:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>;</span>
+<span><span class="fu"><a href="../reference/load_jamsession.html">load_jamsession</a></span><span class="op">(</span><span class="st">"jamsessionVignette"</span>,</span>
+<span>   sessions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">load_jamsession(): </span><span style="color: #00AFFF;">Loading session: </span><span style="color: #FF8700;">C:/Users/JAMES~1.WAR/AppData/Local/Temp/RtmpSSHQA4/inProgress_jamsessionVignette_17nov2025.RData</span> </span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">load_jamsession(): </span><span style="color: #00AFFF;">Loaded session:</span><span style="color: #FF8700;">jamsessionVignette</span><span style="color: #00AFFF;"> into environment '</span><span style="color: #FF8700;">R_GlobalEnv</span><span style="color: #00AFFF;">'</span> </span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">load_jamsession(): </span><span style="color: #00AFFF;">jamba::setPrompt()</span></span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt;              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span></span>
+<span><span class="co">#&gt; [1,] -1.400043517 -0.5536994  0.4681544  0.9353632  0.07003485  0.86208648</span></span>
+<span><span class="co">#&gt; [2,]  0.255317055  0.6289820  0.3629513  0.1764886 -0.63912332 -0.24323674</span></span>
+<span><span class="co">#&gt; [3,] -2.437263611  2.0650249 -1.3045435  0.2436855 -0.04996490 -0.20608719</span></span>
+<span><span class="co">#&gt; [4,] -0.005571287 -1.6309894  0.7377763  1.6235489 -0.25148344  0.01917759</span></span>
+<span><span class="co">#&gt; [5,]  0.621552721  0.5124269  1.8885049  0.1120381  0.44479712  0.02956075</span></span>
+<span><span class="co">#&gt; [6,]  1.148411606 -1.8630115 -0.0974451 -0.1339970  2.75541758  0.54982754</span></span>
+<span><span class="co">#&gt;            [,7]       [,8]       [,9]</span></span>
+<span><span class="co">#&gt; [1,]  1.0743459 -1.4707363  1.9243433</span></span>
+<span><span class="co">#&gt; [2,] -0.6650882  0.2841503  1.2983928</span></span>
+<span><span class="co">#&gt; [3,]  1.1139524  1.3373204  0.7487913</span></span>
+<span><span class="co">#&gt; [4,] -0.2458964  0.2366963  0.5562243</span></span>
+<span><span class="co">#&gt; [5,] -1.1775633  1.3182934 -0.5482573</span></span>
+<span><span class="co">#&gt; [6,] -0.9758506  0.5239098  1.1105349</span></span></code></pre></div>
 </div>
-<div id="saving-r-objects" class="section level2">
-<h2 class="hasAnchor">
-<a href="#saving-r-objects" class="anchor"></a>Saving R objects</h2>
-<p>If you want to save an object, it is best to name it something specific before saving it. The call the <code>saveObject()</code> function with the name of the object:</p>
+<div class="section level3">
+<h3 id="saving-r-objects">Saving R objects<a class="anchor" aria-label="anchor" href="#saving-r-objects"></a>
+</h3>
+<p>If you want to save an object, it is best to name it something
+specific before saving it. The call the <code>saveObject()</code>
+function with the name of the object:</p>
 <blockquote>
-<p>Note that we add the argument <code>objects_path=tempdir()</code> only for this vignette, in typical use this argument is not used, because R objects are stored in one location.</p>
+<p>Note that we add the argument <code>objects_path=tempdir()</code>
+only for this vignette, in typical use this argument is not used,
+because R objects are stored in one location.</p>
 </blockquote>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">jamsessionVignetteY</span> <span class="op">&lt;-</span> <span class="va">t</span>;
-<span class="fu"><a href="../reference/save_object.html">save_object</a></span><span class="op">(</span><span class="st">"jamsessionVignetteY"</span>,
-   objects_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##  (11:51:49) 26Feb2021:  save_objects(): Object saved:/var/folders/9z/y1_0kf711fx3lgc68w1k27xr0000gs/T//Rtmp8knAHg/jamsessionVignetteY_26feb2021.RData</span></pre></div>
-<p>You can then load this object from any R console using <code><a href="../reference/load_object.html">load_object()</a></code>, simulated here by removing the object, then loading it from the saved object file:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">jamsessionVignetteY</span><span class="op">)</span>;
-<span class="fu"><a href="../reference/load_object.html">load_object</a></span><span class="op">(</span><span class="st">"jamsessionVignetteY"</span>,
-   objects_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##  (11:51:49) 26Feb2021:  load_object(): Loaded object: 'jamsessionVignetteY'</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">jamsessionVignetteY</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt;                 </span>
-<span class="co">#&gt; 1 function (x)  </span>
-<span class="co">#&gt; 2 UseMethod("t")</span></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">jamsessionVignetteY</span> <span class="op">&lt;-</span> <span class="va">t</span>;</span>
+<span><span class="fu"><a href="../reference/save_object.html">save_object</a></span><span class="op">(</span><span class="st">"jamsessionVignetteY"</span>,</span>
+<span>   objects_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">save_objects(): </span><span style="color: #00AFFF;">Object saved:</span><span style="color: #87D7FF;">C:\Users\JAMES~1.WAR\AppData\Local\Temp\RtmpSSHQA4/jamsessionVignetteY_17nov2025.RData</span></span></span></code></pre></div>
+<p>You can then load this object from any R console using
+<code><a href="../reference/load_object.html">load_object()</a></code>, simulated here by removing the object, then
+loading it from the saved object file:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">jamsessionVignetteY</span><span class="op">)</span>;</span>
+<span><span class="fu"><a href="../reference/load_object.html">load_object</a></span><span class="op">(</span><span class="st">"jamsessionVignetteY"</span>,</span>
+<span>   objects_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:32</span>) 17Nov2025:   <span style="color: #FF8700;">load_object(): </span><span style="color: #00AFFF;">Loaded object: '</span><span style="color: #87D7FF;">jamsessionVignetteY</span><span style="color: #00AFFF;">'</span></span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">jamsessionVignetteY</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt;                 </span></span>
+<span><span class="co">#&gt; 1 function (x)  </span></span>
+<span><span class="co">#&gt; 2 UseMethod("t")</span></span></code></pre></div>
 </div>
-<div id="loading-r-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#loading-r-functions" class="anchor"></a>Loading R functions</h2>
-<p>R is a functional programming language, which makes it especially useful and powerful to write and re-use custom functions. Most R analysts have built up a long list of useful helper functions, either for re-use across all their projects, or written specifically per project. Either way, these functions need to be loaded into the R workspace, and very likely will need to be refreshed as the functions are updated over time.</p>
-<p>We demonstrate having a utility script by creating a temporary script, then using <code><a href="../reference/refresh_functions.html">refresh_functions()</a></code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="co">## Create a simple R script function fun()</span>
-<span class="va">r_script</span> <span class="op">&lt;-</span> <span class="st">"
-#' Simple print function
-#' 
-#' This function simply runs print()
-#'
-#' @param x any R object that can be printed.
-#' @param ... additional arguments are passed to print().
-#'
-#' @export
-printfun &lt;- function(x, ...) {print(x, ...)};
-"</span>;
-
-<span class="co">## Save to a file in tempdir</span>
-<span class="va">fn_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>,
-   <span class="st">"jamvignette_functions.R"</span><span class="op">)</span>;
-<span class="co">## Save the R script to a file</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">r_script</span>, file<span class="op">=</span><span class="va">fn_file</span><span class="op">)</span>;</pre></div>
-<p>Now the file has been saved under the name “jamsession”. We can load this file with <code><a href="../reference/refresh_functions.html">refresh_functions()</a></code>.</p>
+<div class="section level3">
+<h3 id="loading-r-functions">Loading R functions<a class="anchor" aria-label="anchor" href="#loading-r-functions"></a>
+</h3>
+<p>R is a functional programming language, which makes it especially
+useful and powerful to write and re-use custom functions. Most R
+analysts have built up a long list of useful helper functions, either
+for re-use across all their projects, or written specifically per
+project. Either way, these functions need to be loaded into the R
+workspace, and very likely will need to be refreshed as the functions
+are updated over time.</p>
+<p>We demonstrate having a utility script by creating a temporary
+script, then using <code><a href="../reference/refresh_functions.html">refresh_functions()</a></code>.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Create a simple R script function fun()</span></span>
+<span><span class="va">r_script</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">#' Simple print function</span></span>
+<span><span class="st">#' </span></span>
+<span><span class="st">#' This function simply runs print()</span></span>
+<span><span class="st">#'</span></span>
+<span><span class="st">#' @param x any R object that can be printed.</span></span>
+<span><span class="st">#' @param ... additional arguments are passed to print().</span></span>
+<span><span class="st">#'</span></span>
+<span><span class="st">#' @export</span></span>
+<span><span class="st">printfun &lt;- function(x, ...) {print(x, ...)};</span></span>
+<span><span class="st">"</span>;</span>
+<span></span>
+<span><span class="co">## Save to a file in tempdir</span></span>
+<span><span class="va">fn_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>   <span class="st">"jamvignette_functions.R"</span><span class="op">)</span>;</span>
+<span><span class="co">## Save the R script to a file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">r_script</span>, file<span class="op">=</span><span class="va">fn_file</span><span class="op">)</span>;</span></code></pre></div>
+<p>Now the file has been saved under the name “jamsession”. We can load
+this file with <code><a href="../reference/refresh_functions.html">refresh_functions()</a></code>.</p>
 <blockquote>
-<p>For this vignette, we include argument <code>functions_path=tempdir()</code>, but this argument is usually not necessary, when functions are saved to a common path. Run <code>jamvignette_paths()</code> to see or set the expected paths.</p>
+<p>For this vignette, we include argument
+<code>functions_path=tempdir()</code>, but this argument is usually not
+necessary, when functions are saved to a common path. Run
+<code>jamvignette_paths()</code> to see or set the expected paths.</p>
 </blockquote>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="co">## Load the R script</span>
-<span class="fu"><a href="../reference/refresh_functions.html">refresh_functions</a></span><span class="op">(</span><span class="st">"jamvignette"</span>,
-   functions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt; ##  (11:51:50) 26Feb2021:  refresh_functions(): Loaded temporary package as 'jamvignette'</span>
-
-<span class="co">## search() shows the environments including jamvignette</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;
-<span class="co">#&gt;  [1] ".GlobalEnv"           "devtools_shims"       "package:jamvignette" </span>
-<span class="co">#&gt;  [4] "package:S4Vectors"    "package:BiocGenerics" "package:parallel"    </span>
-<span class="co">#&gt;  [7] "package:stats4"       "package:matrixStats"  "package:colorspace"  </span>
-<span class="co">#&gt; [10] "package:farver"       "package:crayon"       "package:jamsession"  </span>
-<span class="co">#&gt; [13] "package:stats"        "package:graphics"     "package:grDevices"   </span>
-<span class="co">#&gt; [16] "package:utils"        "package:datasets"     "package:methods"     </span>
-<span class="co">#&gt; [19] "Autoloads"            "tools:callr"          "package:base"</span>
-
-<span class="co">## find() to show where printfun is located</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/apropos.html">find</a></span><span class="op">(</span><span class="st">"printfun"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "package:jamvignette"</span></pre></div>
-<p>Lastly, we can run the <code>printfun()</code> function to show it works.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="fu">printfun</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span>;
-<span class="co">#&gt;  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J"</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Load the R script</span></span>
+<span><span class="fu"><a href="../reference/refresh_functions.html">refresh_functions</a></span><span class="op">(</span><span class="st">"jamvignette"</span>,</span>
+<span>   functions_path<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Creating <span style="color: #0000BB;">C:/Users/JAMES~1.WAR/AppData/Local/Temp/RtmpSSHQA4/jamvignette/</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Setting active project to</span></span>
+<span><span class="co">#&gt;   <span style="color: #0000BB;">"C:/Users/james.ward/AppData/Local/Temp/RtmpSSHQA4/jamvignette"</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Creating <span style="color: #0000BB;">R/</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">DESCRIPTION</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">NAMESPACE</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Setting active project to <span style="color: #0000BB;">"&lt;no active project&gt;"</span>.</span></span>
+<span><span class="co">#&gt; ##  (<span style="color: #00D7D7; font-weight: bold;">17:56:33</span>) 17Nov2025:   <span style="color: #FF8700;">refresh_functions(): </span><span style="color: #00AFFF;">Loaded temporary package as '</span><span style="color: #87D7FF;">jamvignette</span><span style="color: #00AFFF;">'</span></span></span>
+<span></span>
+<span><span class="co">## search() shows the environments including jamvignette</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/search.html" class="external-link">search</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt;  [1] ".GlobalEnv"          "devtools_shims"      "package:jamvignette"</span></span>
+<span><span class="co">#&gt;  [4] "package:jamsession"  "package:stats"       "package:graphics"   </span></span>
+<span><span class="co">#&gt;  [7] "package:grDevices"   "package:utils"       "package:datasets"   </span></span>
+<span><span class="co">#&gt; [10] "package:methods"     "Autoloads"           "tools:callr"        </span></span>
+<span><span class="co">#&gt; [13] "package:base"</span></span>
+<span></span>
+<span><span class="co">## find() to show where printfun is located</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/apropos.html" class="external-link">find</a></span><span class="op">(</span><span class="st">"printfun"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "package:jamvignette"</span></span></code></pre></div>
+<p>Lastly, we can run the <code>printfun()</code> function to show it
+works.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">printfun</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span>;</span>
+<span><span class="co">#&gt;  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J"</span></span></code></pre></div>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
-
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
-      <footer><div class="copyright">
+    <footer><div class="pkgdown-footer-left">
   <p>Developed by James M. Ward.</p>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+<div class="pkgdown-footer-right">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
-  
+
+
 
 
   </body>

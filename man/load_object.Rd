@@ -18,22 +18,22 @@ load_object(
 object to load, or \code{data.frame} output from \code{grep_objects()}
 which contains colnames \verb{("object", "object_path", "object_file")}.}
 
-\item{save_date}{optional character string with a specific date to
+\item{save_date}{optional \code{character} string with a specific date to
 use when loading an object. This string is matched with
 the \code{"save_date"} returned by \code{list_objects()}.
 When \code{save_date} is \code{NULL}, the most recent
 object is loaded, which is the default behavior.}
 
-\item{objects_path}{character vector of one or more file paths to
+\item{objects_path}{\code{character} vector of one or more file paths to
 search for saved R objects. When \code{objects_path=NULL}, it uses
 the output from \code{jamsession_paths()$objects}.}
 
-\item{envir}{optional R environment inside which to load the R object.
+\item{envir}{optional R \code{environment} inside which to load the R object.
 Note that if an R object already exists in this environment,
 it will overwritten without warning. This behavior is intended
 by \code{load_object()}.}
 
-\item{verbose}{logical whether to print verbose output}
+\item{verbose}{\code{logical} whether to print verbose output}
 
 \item{...}{additional arguments are ignored.}
 }
@@ -63,61 +63,62 @@ Note that \code{envir} can be used to load the object into a separate
 environment, if needed.
 }
 \examples{
-my_df <- data.frame(A=LETTERS[1:5], a=letters[1:5]);
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+
+withr::with_options(list(jam.objects_path=tempdir()), {
+
+my_df <- data.frame(col1=LETTERS[1:5], col2=letters[1:5]);
 print(my_df);
 
-save_object("my_df");
+save_object("my_df", verbose=FALSE);
 
-grep_objects("my_df");
+print(grep_objects("my_df"))
 
 rm(my_df);
 
-load_object("my_df");
+load_object("my_df", verbose=FALSE);
 print(my_df);
 
-load_object(grep_objects("my_df"))
+load_object(grep_objects("my_df"), verbose=FALSE)
 print(my_df);
+})
 
 ######################################
 # Load into a separate environment
 rm(my_df);
 sep_env <- new.env();
-load_object("my_df", envir=sep_env);
+
+withr::with_options(list(jam.objects_path=tempdir()), {
+
+load_object("my_df", envir=sep_env, verbose=FALSE)
 
 # this object is not in the current workspace
-find("my_df");
+print(find("sep_env"))
 
 # you can use get() to see this object
 print(get("my_df", envir=sep_env));
 
-# or you can attach the environment to use objects inside
-find("my_df");
-attach(sep_env);
-find("my_df");
-
-# detach when no longer using this environment
-detach("sep_env");
-find("my_df");
+})
 
 ######################################
 # example showing two objects stored together
+withr::with_options(list(jam.objects_path=tempdir()), {
 my_df2 <- data.frame(B=LETTERS[11:15], b=letters[11:15]);
-load_object("my_df");
-save_object(c("my_df", "my_df2"));
 
-grep_objects("my_df2");
-loaded <- load_object(grep_objects("my_df2"));
+load_object("my_df", verbose=FALSE);
+save_object(c("my_df", "my_df2"), verbose=FALSE);
+
+print(grep_objects("my_df2"))
+loaded <- load_object(grep_objects("my_df2"), verbose=FALSE);
 
 # note that it loads two objects
 print(loaded);
-
-
+})
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other jamsession objects: 
-\code{\link{fileInfo}()},
 \code{\link{grep_objects}()},
-\code{\link{list_objects}()},
 \code{\link{save_object}()}
 }
 \concept{jamsession objects}

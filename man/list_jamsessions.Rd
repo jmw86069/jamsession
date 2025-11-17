@@ -10,17 +10,19 @@ list_jamsessions(
   session_prefix = "^inProgress_",
   session_suffix = "[.]RData$",
   add_stats = FALSE,
+  return_type = c("df", "sessions", "list"),
   ...
 )
 }
 \arguments{
-\item{sessions_path}{character vector of one or more file paths to search
+\item{sessions_path}{\code{character} vector of one or more file paths to search
 for saved R sessions. When \code{NULL}, it uses the output from
 \code{jamsession_paths()$sessions}.}
 
-\item{most_recent}{logical whether to return only the most recent
-saved entry for each session name. When \code{most_recent} is \code{FALSE},
-this function returns all saved versions for all R session names.}
+\item{most_recent}{\code{logical} default FALSE, whether to return only
+the most recent entry for each session name.
+When \code{most_recent} is \code{FALSE} all saved versions are returned for
+all R session names.}
 
 \item{session_prefix, session_suffix}{\code{character} string used as
 prefix or suffix when searching each path in \code{sessions_path}
@@ -34,11 +36,10 @@ versions.}
 \item{...}{additional parameters are ignored}
 }
 \value{
-list containing
-\describe{
-\item{session_df}{\code{data.frame} of R session information}
-\item{session}{\code{vector} of matching R session names}
-}
+\code{data.frame} by default, with sessions per row.
+When \code{return_type='sessions'} it returns the unique session
+names. When \code{return_type='list'} it returns a \code{list} with both
+elements.
 }
 \description{
 List saved R sessions
@@ -73,10 +74,11 @@ list_jamsessions();
 
 }
 \seealso{
-Other jamsession sessions: 
-\code{\link{grep_jamsessions}()},
-\code{\link{load_jamsession}()},
-\code{\link{save_jamsession}()},
-\code{\link{show_session_versions}()}
+Other jamsession internals: 
+\code{\link{clean_jamsession_name}()},
+\code{\link{fileInfo}()},
+\code{\link{list_functions}()},
+\code{\link{list_objects}()},
+\code{\link{print_pkg_description}()}
 }
-\concept{jamsession sessions}
+\concept{jamsession internals}

@@ -24,10 +24,11 @@ adds the filename as a proper colname, and "size" which contains a text
 file size.
 }
 \seealso{
-Other jamsession objects: 
-\code{\link{grep_objects}()},
+Other jamsession internals: 
+\code{\link{clean_jamsession_name}()},
+\code{\link{list_functions}()},
+\code{\link{list_jamsessions}()},
 \code{\link{list_objects}()},
-\code{\link{load_object}()},
-\code{\link{save_object}()}
+\code{\link{print_pkg_description}()}
 }
-\concept{jamsession objects}
+\concept{jamsession internals}

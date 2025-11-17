@@ -30,7 +30,6 @@ show versions saved for a session
 \seealso{
 Other jamsession sessions: 
 \code{\link{grep_jamsessions}()},
-\code{\link{list_jamsessions}()},
 \code{\link{load_jamsession}()},
 \code{\link{save_jamsession}()}
 }

@@ -151,4 +151,9 @@ tempfn(c("one", "two"))
 #> [1] "one" "two"
 
 }
+\seealso{
+Other jamsession functions: 
+\code{\link{grep_functions}()},
+\code{\link{list_functions_exports}()}
+}
 \concept{jamsession functions}

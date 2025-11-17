@@ -49,8 +49,9 @@
 #' }
 #'
 #' @docType package
+#' @keywords internal
 #' @name jamsession
-NULL
+"_PACKAGE"
 
 
 
@@ -92,11 +93,11 @@ NULL
 #'    file. We recommend storing multiple objects into one file only
 #'    when those objects are only useful together, and using only one
 #'    object would be insufficient or lack enough context for full re-use.
-#' @param save_date character date string to use when naming the file.
+#' @param save_date `character` date string to use when naming the file.
 #'    By default, the current date is used via the function
 #'    `jamba::getDate()`, however to use a custom date format any
 #'    text string can be used here.
-#' @param objects_path character vector of one or more file paths to
+#' @param objects_path `character` vector of one or more file paths to
 #'    search for saved R objects. When `objects_path=NULL`, it uses
 #'    the output from `jamsession_paths()$objects`. The process will
 #'    try to save the `.RData` file in each path in `objects_path`
@@ -117,21 +118,20 @@ NULL
 #' @param object_suffix `character` string used as the file extension,
 #'    by default `".RData"`. This value should probably never change,
 #'    but it is possible to change here.
-#' @param envir the environment from which to obtain the R object.
+#' @param envir the `environment` from which to obtain the R object.
 #' @param verbose `logical` indicating whether to print verbose output.
 #' @param ... additional arguments are ignored.
 #'
-#' @examples
-#' temp_objects_path <- file.path(tempdir(), "R-objects");
-#' if (!dir.exists(temp_objects_path)) {
-#'    dir.create(temp_objects_path)
-#' }
+#' @examplesIf interactive()
+#' withr::with_options(list(jam.objects_path=tempdir()), {
+#'
 #' example_df <- data.frame(name=LETTERS[1:5], values=letters[1:5])
-#' save_object("example_df", objects_path=temp_objects_path)
-#' grep_objects("example", objects_path=temp_objects_path)
+#' save_object("example_df")
+#' grep_objects("example")
 #'
-#' list_objects(objects_path=temp_objects_path)
+#' list_objects()
 #'
+#' })
 #' @export
 save_object <- function
 (object_list,
@@ -146,7 +146,7 @@ save_object <- function
 {
    ## Purpose is to save RData individual objects to files, versioned by date, so they
    ## can be recalled without having to load an entire R session.
-   ##
+
    ## To add description, the objectNotesList parameter gets saved to a description file
    ## after subjected to unlist().
    object_list_name <- jamba::cPaste(object_list, sep="-");
@@ -161,6 +161,16 @@ save_object <- function
          !(all(object_notes_list %in% c(NA, ""))) ) {
    } else {
       object_notes_list <- NULL;
+   }
+
+   if ("." %in% objects_path) {
+      if ("first" %in% prefer_local) {
+         objects_path <- unique(c(".", objects_path))
+      } else if ("last" %in% prefer_local) {
+         objects_path <- unique(c(
+            setdiff(objects_path, "."),
+            "."))
+      }
    }
 
    ## iterate session_path to use the first writeable directory
@@ -270,7 +280,7 @@ save_object <- function
 #'    \item{object}{`vector` of matching R object names}
 #' }
 #'
-#' @family jamsession objects
+#' @family jamsession internals
 #'
 #' @param objects_path character vector of one or more file paths to
 #'    search for saved R objects. When `objects_path=NULL`, it uses
@@ -286,7 +296,7 @@ save_object <- function
 #'    stats for each object.
 #' @param ... additional arguments are ignored.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' # by default the full list includes all past versions
 #' head(list_objects());
 #'
@@ -384,14 +394,12 @@ list_objects <- function
       }
    }
 
-   if (most_recent && nrow(object_df) > 1) {
       object_df <- jamba::mixedSortDF(object_df,
          byCols=c("object",
-            "object_path",
-            "days_old"));
-      object_unique_match <- match(unique(object_df$object),
-         object_df$object);
-      object_df <- object_df[object_unique_match,,drop=FALSE];
+            "days_old",
+            "object_path"));
+   if (most_recent && nrow(object_df) > 1) {
+      object_df <- subset(object_df, !duplicated(object));
    }
 
    if (add_stats) {
@@ -561,71 +569,72 @@ grep_objects <- function
 #' @param object `character` string indicating the name of the R
 #'    object to load, or `data.frame` output from `grep_objects()`
 #'    which contains colnames `("object", "object_path", "object_file")`.
-#' @param save_date optional character string with a specific date to
+#' @param save_date optional `character` string with a specific date to
 #'    use when loading an object. This string is matched with
 #'    the `"save_date"` returned by `list_objects()`.
 #'    When `save_date` is `NULL`, the most recent
 #'    object is loaded, which is the default behavior.
-#' @param objects_path character vector of one or more file paths to
+#' @param objects_path `character` vector of one or more file paths to
 #'    search for saved R objects. When `objects_path=NULL`, it uses
 #'    the output from `jamsession_paths()$objects`.
-#' @param envir optional R environment inside which to load the R object.
+#' @param envir optional R `environment` inside which to load the R object.
 #'    Note that if an R object already exists in this environment,
 #'    it will overwritten without warning. This behavior is intended
 #'    by `load_object()`.
-#' @param verbose logical whether to print verbose output
+#' @param verbose `logical` whether to print verbose output
 #' @param ... additional arguments are ignored.
 #'
-#' @examples
-#' my_df <- data.frame(A=LETTERS[1:5], a=letters[1:5]);
+#' @examplesIf interactive()
+#'
+#' withr::with_options(list(jam.objects_path=tempdir()), {
+#'
+#' my_df <- data.frame(col1=LETTERS[1:5], col2=letters[1:5]);
 #' print(my_df);
 #'
-#' save_object("my_df");
+#' save_object("my_df", verbose=FALSE);
 #'
-#' grep_objects("my_df");
+#' print(grep_objects("my_df"))
 #'
 #' rm(my_df);
 #'
-#' load_object("my_df");
+#' load_object("my_df", verbose=FALSE);
 #' print(my_df);
 #'
-#' load_object(grep_objects("my_df"))
+#' load_object(grep_objects("my_df"), verbose=FALSE)
 #' print(my_df);
+#' })
 #'
 #' ######################################
 #' # Load into a separate environment
 #' rm(my_df);
 #' sep_env <- new.env();
-#' load_object("my_df", envir=sep_env);
+#'
+#' withr::with_options(list(jam.objects_path=tempdir()), {
+#'
+#' load_object("my_df", envir=sep_env, verbose=FALSE)
 #'
 #' # this object is not in the current workspace
-#' find("my_df");
+#' print(find("sep_env"))
 #'
 #' # you can use get() to see this object
 #' print(get("my_df", envir=sep_env));
 #'
-#' # or you can attach the environment to use objects inside
-#' find("my_df");
-#' attach(sep_env);
-#' find("my_df");
-#'
-#' # detach when no longer using this environment
-#' detach("sep_env");
-#' find("my_df");
+#' })
 #'
 #' ######################################
 #' # example showing two objects stored together
+#' withr::with_options(list(jam.objects_path=tempdir()), {
 #' my_df2 <- data.frame(B=LETTERS[11:15], b=letters[11:15]);
-#' load_object("my_df");
-#' save_object(c("my_df", "my_df2"));
 #'
-#' grep_objects("my_df2");
-#' loaded <- load_object(grep_objects("my_df2"));
+#' load_object("my_df", verbose=FALSE);
+#' save_object(c("my_df", "my_df2"), verbose=FALSE);
+#'
+#' print(grep_objects("my_df2"))
+#' loaded <- load_object(grep_objects("my_df2"), verbose=FALSE);
 #'
 #' # note that it loads two objects
 #' print(loaded);
-#'
-#'
+#' })
 #' @export
 load_object <- function
 (object,

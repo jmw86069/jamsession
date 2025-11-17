@@ -1,19 +1,48 @@
 # jamsession TODO
 
+## 17nov2025
+
+* COMPLETE. Add `grep_functions()` for consistency, and utility.
+
+   * It should return "Path" in columns, and allow multiple
+   matches for each "Name". Need way to specify which to use.
+
+* COMPLETE. `jamsession_paths()`
+
+   * Improve docs showing which `options()` are used, make it
+   easier to use with `withr::with_options()` for example.
+   * Consider `path.expand()` for shorthand paths.
+   * Consider `with_jamsession_paths()` as drop-in?
+   * Should most methods return jamsession_paths as attribute?
+   So the paths used at the time are available as a "state"
+   to be re-used as needed. Consider `"~/Projects/R-objects"`
+   by another user, it would evaluate to a new path.
+   Currently there is no clear indication what paths were used,
+   except by the session calling the jamsession functions.
+   No clear pattern to follow to store that information.
+
+* Longer term: Debug occassional error using `refresh_functions()`
+inside Rmd that uses caching, sometimes the package throws
+an error "package not loaded" or similar, even when it should
+be loaded in a previous chunk.
+
+   * Error is resolved by loading `refresh_functions()` manually,
+   at least for Rmd which is rendered `rmarkdown::render()`.
+   * See `pkgload::is_dev_package()`.
+
 ## 14apr2025
 
-* Add missing dependencies: usethis, roxygen2, farver (?).
+* COMPLETE. Add missing dependencies: usethis, roxygen2, farver (?).
 Verify if others are needed.
 
 ## 03apr2025
 
 * `refresh_functions()`
 
-   * `verbose=FALSE` should wrap `suppressMessages()` to silence
+   * DONE. `verbose=FALSE` should wrap `suppressMessages()` to silence
    `usethis::create_package()` or whatever step is using `message()`.
    * Consider option to use any file without the "_functions.R" suffix.
 
-* Add `grep_functions()`
 * Bonus points? `save_functions()`?
 
    * provide `character` vector of function names
@@ -35,7 +64,7 @@ Verify if others are needed.
    identical(roxy1, roxy2)
    ```
 
-* Make paths by default also look in current working directory?
+* DEFER. Make paths by default also look in current working directory?
 
    * Consider option to enable working dir (somehow) so that
    working directory can be checked first when loading,

@@ -27,20 +27,20 @@
 #' `load_jamsession("my_session")` does the same thing,
 #' without the grep_patten search step.
 #'
-#' @family jamsession sessions
+#' @family jamsession internals
 #'
-#' @return list containing
-#' \describe{
-#'    \item{session_df}{`data.frame` of R session information}
-#'    \item{session}{`vector` of matching R session names}
-#' }
+#' @returns `data.frame` by default, with sessions per row.
+#'    When `return_type='sessions'` it returns the unique session
+#'    names. When `return_type='list'` it returns a `list` with both
+#'    elements.
 #'
-#' @param sessions_path character vector of one or more file paths to search
+#' @param sessions_path `character` vector of one or more file paths to search
 #'    for saved R sessions. When `NULL`, it uses the output from
 #'    `jamsession_paths()$sessions`.
-#' @param most_recent logical whether to return only the most recent
-#'    saved entry for each session name. When `most_recent` is `FALSE`,
-#'    this function returns all saved versions for all R session names.
+#' @param most_recent `logical` default FALSE, whether to return only
+#'    the most recent entry for each session name.
+#'    When `most_recent` is `FALSE` all saved versions are returned for
+#'    all R session names.
 #' @param session_prefix,session_suffix `character` string used as
 #'    prefix or suffix when searching each path in `sessions_path`
 #'    for matching file names.
@@ -60,10 +60,13 @@ list_jamsessions <- function
  session_prefix="^inProgress_",
  session_suffix="[.]RData$",
  add_stats=FALSE,
+ return_type=c("df", "sessions", "list"),
  ...)
 {
    ## Purpose is to provide a list of all stored R sessions,
    ## to be subsetted or searched
+   return_type <- match.arg(return_type);
+
    if (length(sessions_path) == 0) {
       sessions_path <- jamsession_paths()$sessions;
    }
@@ -86,7 +89,7 @@ list_jamsessions <- function
    }
 
    session_file_info <- fileInfo(session_files);
-   session_file_size <- session_file_info[,"size"];
+   session_file_size <- session_file_info[, "size"];
    session_file_bytes <- file.info(session_files)$size;
 
    session_files2 <- gsub(
@@ -111,6 +114,12 @@ list_jamsessions <- function
       levels=unique(c(sessions_path,
          session_df$session_path)));
    session_df[,"session_file"] <- basename(session_files);
+
+   ## Sort by default
+   if (nrow(session_df) > 1) {
+      session_df <- jamba::mixedSortDF(session_df,
+         byCols=c("days_old", "session", "session_path"));
+   }
 
    ## Add descriptive stats
    if (add_stats) {
@@ -159,7 +168,13 @@ list_jamsessions <- function
          all.y=TRUE);
    }
 
-   return(list("session_df"=session_df,
+   if ("df" %in% return_type) {
+      return(session_df)
+   } else if ("sessions" %in% return_type) {
+      return(unique(session_df$session))
+   }
+   return(list(
+      "session_df"=session_df,
       "session"=unique(session_df$session)));
 }
 
@@ -229,7 +244,7 @@ grep_jamsessions <- function
       sessions_path=sessions_path,
       most_recent=most_recent,
       add_stats=add_stats,
-      ...)$session_df;
+      ...);
 
    ## alter the input pattern using clean_jamsession_name()
    pattern <- clean_jamsession_name(pattern,
@@ -245,7 +260,17 @@ grep_jamsessions <- function
       x=session_df$session,
       ignore.case=ignore.case,
       ...);
-   session_grep <- subset(session_df, session %in% session_grep_v)
+   cleaned_rows <- clean_jamsession_name(rownames(session_df),
+      remove_pattern=remove_pattern,
+      replacement=".")
+   session_rows <- intersect(pattern, rownames(session_df))
+
+   ## 0.0.6.900: allow matching rowname or pattern
+   session_grep <- subset(session_df,
+      cleaned_rows %in% pattern |
+         session %in% session_grep_v);
+   # session_grep <- subset(session_df, session %in% session_grep_v)
+
    #session_grep_rows <- unlist(lapply(session_grep_v, function(i){
    #   which(session_df$session %in% i)
    #}))
@@ -264,7 +289,7 @@ grep_jamsessions <- function
    ## Optionally Sort for newest first
    if (sort_by_date) {
       session_grep <- jamba::mixedSortDF(session_grep,
-         byCols=c("days_old", "session"));
+         byCols=c("days_old", "session", "session_path"));
    }
 
    ## Optionally return the session name
@@ -326,18 +351,22 @@ grep_jamsessions <- function
 #'
 #' @family jamsession sessions
 #'
-#' @param session character string corresponding to the `"session"`,
+#' @param session `character` string corresponding to the `"session"`,
 #'    which is matched directly with the `"session"` column output from
 #'    `grep_jamsessions()`, or `data.frame` output from `grep_jamsessions()`.
-#' @param sessions_path character vector of one or more file paths to search
+#'    This value can also match `rownames()` on `list_jamsessions()`
+#'    so that it can include a specific 'save_date'.
+#' @param sessions_path `character` vector of one or more file paths to search
 #'    for saved R sessions. When `NULL`, it uses the output from
 #'    `jamsession_paths()$session`. This value is used only when
 #'    `session` is a character vector, and is passed to
 #'    `grep_jamsessions()`.
-#' @param save_date optional character string with a specific date to
-#'    use when loading a session. This string is matched with
+#' @param save_date optional `character` string with a specific date to
+#'    use when loading a session. Note that the argument 'session' can accept
+#'    this string as suffix, 'sessionname_savedate'.
+#'    * This string is matched with
 #'    the `"save_date"` returned by `list_jamsessions()`.
-#'    When `save_date` is `NULL`, the most recent
+#'    * When `save_date` is `NULL`, the most recent
 #'    session is used, which is the default behavior.
 #' @param envir `environment`, where `"environment" %in% class(envir)`.
 #'    By default `envir` uses `globalenv()` which loads the R session
@@ -348,19 +377,17 @@ grep_jamsessions <- function
 #'    R objects in the R session file from overwriting R objects
 #'    with the same name in the local R workspace. For example
 #'    `session_env=new.env();load_jamsession("New", envir=session_env)`.
-#' @param assign_session logical whether to assign `session`
-#'    to the `parent.env()` which is typically the global environment
-#'    `.GlobalEnv`.
-#' @param load_history logical whether to load the .Rhistory file for the
-#'    R session, if available.
-#' @param do_prompt logical whether to run
-#'    `jamba::setPrompt()` to update the R prompt to include the
-#'    `session`.
-#' @param do_window_title logical whether to update the device options
-#'    to define the title based upon the `session`. Currently when `TRUE`,
-#'    the options `quartz.options()` and `X11.options()` are defined,
-#'    if possible.
-#' @param verbose logical whether to print verbose output.
+#' @param assign_session `logical` default TRUE, whether to assign `session`
+#'    to the `parent.env()`, typically the global environment `globalenv()`.
+#' @param load_history `logical` default TRUE, whether to load the '.Rhistory'
+#'    file for the R session, if available.
+#' @param do_prompt `logical` default TRUE, whether to set the R prompt with
+#'    `jamba::setPrompt()` to include the session name.
+#' @param do_window_title `logical` default TRUE, whether to update the
+#'    graphics device options to include the session name in the title.
+#'    When `TRUE`, it calls `quartz.options()`, `X11.options()`, and
+#'    `windows.options()` where available.
+#' @param verbose `logical` whether to print verbose output.
 #' @param ... additional arguments are passed to `jamba::setPrompt()`.
 #'
 #' @export
@@ -371,8 +398,8 @@ load_jamsession <- function
  envir=globalenv(),
  assign_session=TRUE,
  load_history=TRUE,
- do_window_title=TRUE,
  do_prompt=TRUE,
+ do_window_title=TRUE,
  verbose=TRUE,
  ...)
 {
@@ -517,7 +544,7 @@ load_jamsession <- function
    }
 
    ## Assign this value to the current environment, just to help keep track
-   if (assign_session) {
+   if (TRUE %in% assign_session) {
       assign("session",
          session1,
          envir=envir);
@@ -525,12 +552,21 @@ load_jamsession <- function
    ## Now define the default window title
    if (!identical(globalenv(), envir) && do_window_title) {
       window_title <- paste0("Session: ", session1);
-      try({
-         grDevices::quartz.options(title=window_title)
-      });
-      try({
-         grDevices::X11.options(title=window_title)
-      });
+      if (exists("quartz.options", where="package:grDevices")) {
+         try({
+            grDevices::quartz.options(title=window_title)
+         });
+      }
+      if (exists("X11.options", where="package:grDevices")) {
+         try({
+            grDevices::X11.options(title=window_title)
+         });
+      }
+      if (exists("windows.options", where="package:grDevices")) {
+         try({
+            grDevices::windows.options(title=window_title)
+         });
+      }
    }
 
    if (do_prompt) {
@@ -557,48 +593,52 @@ load_jamsession <- function
 #' However the R objects are saved as R objects, with no information
 #' about the source environment.
 #'
-#' By default this function will assign the value of `session`
-#' to `session` in the global environment, unless `assign_session=FALSE`,
-#' in order to reinforce the active R session name, and which
-#' is shown by the R prompt by default, via calling `jamba::setPrompt()`.
-#' These changes are intended as visual reminders of the active R
-#' session.
+#' This function may assign the global variable 'session' to the
+#' name of the session loaded, but is not done by default
+#' due to  `assign_session=FALSE`.
 #'
 #' @family jamsession sessions
 #'
 #' @param session `character` session name used to name the .RData file
-#' @param assign_session logical whether to assign `session` in the
-#'    global environment `.GlobalEnv`, to reinforce the active session.
-#'    It is typically not advised to update the `.GlobalEnv` inside a
-#'    function, however for typical use of `load_jamsession()` the
-#'    intended result is to provide an consistent R session, and
-#'    `session` is part of that expectation.
-#' @param date the date string to use when naming the .RData file.
+#' @param assign_session `logical` default FALSE, whether to assign
+#'    'session' in the global environment `.GlobalEnv`, to the session.
+#' @param date `character` date string to use when naming the .RData file.
 #'    By default the current date is used, called by `jamba::getDate()`.
-#' @param do_timestamp logical whether to run `utils::timestamp()` so the
-#'    current time and date are written into the `.Rhistory` file.
-#' @param sessions_path character vector of one or more file paths to search
-#'    for saved R sessions. When `NULL`, it uses the output from
-#'    `jamsession_paths()$sessions`.
-#' @param do_prompt logical whether to run `jamba::setPrompt()`
-#'    to set the R prompt to include the `session`.
-#' @param do_window_title logical whether to set the default device
-#'    window title to include the `session`.
-#' @param save_history logical whether to save the R command history
-#'    into an `.Rhistory` file. Note that the full available R
+#' @param do_timestamp `logical` default TRUE, whether to run
+#'    `utils::timestamp()` so the current time and date are written into
+#'    the `.Rhistory` file.
+#' @param sessions_path `character` vector of one or more file paths to search
+#'    for saved R sessions.
+#'    Default uses `jamsession_paths()$sessions`.
+#' @param do_prompt `logical` default TRUE, whether to run `jamba::setPrompt()`
+#'    to set the R prompt to include the session name.
+#' @param do_window_title `logical` default TRUE, whether to update the
+#'    graphics device options to include the session name in the title.
+#'    When `TRUE`, it calls `quartz.options()`, `X11.options()`, and
+#'    `windows.options()` if possible.
+#' @param save_history `logical` default TRUE, whether to save the R
+#'    command history into an `.Rhistory` file.
+#'    Note that the full available R
 #'    command history is saved, but this command history is subject
 #'    to platform-specific limitations, and thus may not contain the
 #'    entire R command history.
-#' @param envir R environment to save, by default the active global
-#'    environment `.GlobalEnv`.
+#' @param envir R `environment` to save, by default the active global
+#'    environment `globalenv()`.
+#' @param session_prefix `character`, default 'inProgress_' used to
+#'    identify jamsession files distinct from other 'RData' files.
+#' @param session_suffix `character` default '.RData' used to define
+#'    the filename extension.
+#' @param save_objectlist `logical` default TRUE, whether to save a character
+#'    list of objects to a separate file, so they can be searched
+#'    instead of loading the entire RData file for this information.
 #' @param verbose logical whether to print verbose output.
 #' @param ... additional arguments passed to `base::save()`
 #'
 #' @export
 save_jamsession <- function
 (session=get("session", envir=envir),
- assign_session=TRUE,
  save_date=jamba::getDate(),
+ assign_session=FALSE,
  do_timestamp=TRUE,
  sessions_path=jamsession_paths()$sessions,
  do_prompt=TRUE,
@@ -757,12 +797,21 @@ save_jamsession <- function
    ## Now define the default window title
    if (do_window_title) {
       window_title <- paste0(session, " %d");
-      try(
-         grDevices::quartz.options(title=window_title)
-      )
-      try(
-         grDevices::X11.options(title=window_title)
-      )
+      if (exists("quartz.options", where="package:grDevices")) {
+         try({
+            grDevices::quartz.options(title=window_title)
+         })
+      }
+      if (exists("X11.options", where="package:grDevices")) {
+         try({
+            grDevices::X11.options(title=window_title)
+         })
+      }
+      if (exists("windows.options", where="package:grDevices")) {
+         try({
+            grDevices::windows.options(title=window_title)
+         })
+      }
    }
 
    if (do_prompt) {
@@ -814,6 +863,10 @@ show_session_versions <- function
 #' by default underscore `"_"`. The `remove_pattern` and the
 #' `replacement` are configurable if needed.
 #'
+#' @family jamsession internals
+#'
+#' @returns `character` vector after adjusting input 'x'.
+#'
 #' @param x `character` string representing a jam session name.
 #' @param remove_pattern `character` string regular expression pattern
 #'    passed to `gsub()` to define portions of `x` to be replaced.
@@ -824,7 +877,7 @@ show_session_versions <- function
 #' @export
 clean_jamsession_name <- function
 (x,
- remove_pattern="[._'\" /\\]+",
+ remove_pattern="[-._'\" /\\:]+",
  replacement="_",
  verbose=FALSE,
  ...)

@@ -15,7 +15,7 @@
 #' @param fileList `character` vector with one or more file paths.
 #' @param ... Additional arguments are ignored.
 #'
-#' @family jamsession objects
+#' @family jamsession internals
 #'
 #' @export
 fileInfo <- function

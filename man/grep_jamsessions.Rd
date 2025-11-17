@@ -77,7 +77,6 @@ grep_jamsessions(".");
 }
 \seealso{
 Other jamsession sessions: 
-\code{\link{list_jamsessions}()},
 \code{\link{load_jamsession}()},
 \code{\link{save_jamsession}()},
 \code{\link{show_session_versions}()}

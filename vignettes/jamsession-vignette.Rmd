@@ -78,8 +78,7 @@ becoming part of the environment
 
 When starting a new project in a new R console, it is helpful to initiate
 the environment with the project name, by saving a new session. By default,
-`session` will be defined during this step, and the R prompt will
-change to display the `session`.
+the R prompt will change to display the `session`.
 
 > Note that we add the argument `sessions_path=tempdir()` only for this
 vignette, in typical use this argument is not used, because R
@@ -90,7 +89,6 @@ library(jamsession);
 some_object <- data.frame(A=LETTERS[1:10]);
 save_jamsession("jamsessionVignette",
    sessions_path=tempdir());
-print(session);
 ```
 
 You may then do some work and wish to save your session:
@@ -102,7 +100,8 @@ y <- matrix(ncol=9, data=x);
 # save_jamsession();
 
 ## For this vignette we add sessions_path
-save_jamsession(sessions_path=tempdir());
+save_jamsession("jamsessionVignette",
+   sessions_path=tempdir());
 ```
 
 You can later start R and pick up where you left off, which is simulated

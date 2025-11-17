@@ -23,12 +23,12 @@ file. We recommend storing multiple objects into one file only
 when those objects are only useful together, and using only one
 object would be insufficient or lack enough context for full re-use.}
 
-\item{save_date}{character date string to use when naming the file.
+\item{save_date}{\code{character} date string to use when naming the file.
 By default, the current date is used via the function
 \code{jamba::getDate()}, however to use a custom date format any
 text string can be used here.}
 
-\item{objects_path}{character vector of one or more file paths to
+\item{objects_path}{\code{character} vector of one or more file paths to
 search for saved R objects. When \code{objects_path=NULL}, it uses
 the output from \code{jamsession_paths()$objects}. The process will
 try to save the \code{.RData} file in each path in \code{objects_path}
@@ -53,7 +53,7 @@ size and path.}
 by default \code{".RData"}. This value should probably never change,
 but it is possible to change here.}
 
-\item{envir}{the environment from which to obtain the R object.}
+\item{envir}{the \code{environment} from which to obtain the R object.}
 
 \item{verbose}{\code{logical} indicating whether to print verbose output.}
 
@@ -92,22 +92,21 @@ R object is saved to the first directory that allows the file
 to be saved successfully.
 }
 \examples{
-temp_objects_path <- file.path(tempdir(), "R-objects");
-if (!dir.exists(temp_objects_path)) {
-   dir.create(temp_objects_path)
-}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+withr::with_options(list(jam.objects_path=tempdir()), {
+
 example_df <- data.frame(name=LETTERS[1:5], values=letters[1:5])
-save_object("example_df", objects_path=temp_objects_path)
-grep_objects("example", objects_path=temp_objects_path)
+save_object("example_df")
+grep_objects("example")
 
-list_objects(objects_path=temp_objects_path)
+list_objects()
 
+})
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other jamsession objects: 
-\code{\link{fileInfo}()},
 \code{\link{grep_objects}()},
-\code{\link{list_objects}()},
 \code{\link{load_object}()}
 }
 \concept{jamsession objects}

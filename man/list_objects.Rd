@@ -68,6 +68,7 @@ ties prefer the order in \code{objects_path}. Similarly,
 without the grep_patten search step.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # by default the full list includes all past versions
 head(list_objects());
 
@@ -76,13 +77,14 @@ list_objects(most_recent=TRUE);
 
 # add_stats makes sense when most_recent=TRUE
 list_objects(most_recent=TRUE, add_stats=TRUE);
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
-Other jamsession objects: 
+Other jamsession internals: 
+\code{\link{clean_jamsession_name}()},
 \code{\link{fileInfo}()},
-\code{\link{grep_objects}()},
-\code{\link{load_object}()},
-\code{\link{save_object}()}
+\code{\link{list_functions}()},
+\code{\link{list_jamsessions}()},
+\code{\link{print_pkg_description}()}
 }
-\concept{jamsession objects}
+\concept{jamsession internals}

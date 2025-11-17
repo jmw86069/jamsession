@@ -2,9 +2,12 @@
 
 export(clean_jamsession_name)
 export(fileInfo)
+export(grep_functions)
 export(grep_jamsessions)
 export(grep_objects)
 export(jamsession_paths)
+export(list_functions)
+export(list_functions_exports)
 export(list_jamsessions)
 export(list_objects)
 export(load_jamsession)

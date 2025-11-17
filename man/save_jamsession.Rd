@@ -6,8 +6,8 @@
 \usage{
 save_jamsession(
   session = get("session", envir = envir),
-  assign_session = TRUE,
   save_date = jamba::getDate(),
+  assign_session = FALSE,
   do_timestamp = TRUE,
   sessions_path = jamsession_paths()$sessions,
   do_prompt = TRUE,
@@ -25,40 +25,50 @@ save_jamsession(
 \arguments{
 \item{session}{\code{character} session name used to name the .RData file}
 
-\item{assign_session}{logical whether to assign \code{session} in the
-global environment \code{.GlobalEnv}, to reinforce the active session.
-It is typically not advised to update the \code{.GlobalEnv} inside a
-function, however for typical use of \code{load_jamsession()} the
-intended result is to provide an consistent R session, and
-\code{session} is part of that expectation.}
+\item{assign_session}{\code{logical} default FALSE, whether to assign
+'session' in the global environment \code{.GlobalEnv}, to the session.}
 
-\item{do_timestamp}{logical whether to run \code{utils::timestamp()} so the
-current time and date are written into the \code{.Rhistory} file.}
+\item{do_timestamp}{\code{logical} default TRUE, whether to run
+\code{utils::timestamp()} so the current time and date are written into
+the \code{.Rhistory} file.}
 
-\item{sessions_path}{character vector of one or more file paths to search
-for saved R sessions. When \code{NULL}, it uses the output from
-\code{jamsession_paths()$sessions}.}
+\item{sessions_path}{\code{character} vector of one or more file paths to search
+for saved R sessions.
+Default uses \code{jamsession_paths()$sessions}.}
 
-\item{do_prompt}{logical whether to run \code{jamba::setPrompt()}
-to set the R prompt to include the \code{session}.}
+\item{do_prompt}{\code{logical} default TRUE, whether to run \code{jamba::setPrompt()}
+to set the R prompt to include the session name.}
 
-\item{do_window_title}{logical whether to set the default device
-window title to include the \code{session}.}
+\item{do_window_title}{\code{logical} default TRUE, whether to update the
+graphics device options to include the session name in the title.
+When \code{TRUE}, it calls \code{quartz.options()}, \code{X11.options()}, and
+\code{windows.options()} if possible.}
 
-\item{save_history}{logical whether to save the R command history
-into an \code{.Rhistory} file. Note that the full available R
+\item{save_history}{\code{logical} default TRUE, whether to save the R
+command history into an \code{.Rhistory} file.
+Note that the full available R
 command history is saved, but this command history is subject
 to platform-specific limitations, and thus may not contain the
 entire R command history.}
 
-\item{envir}{R environment to save, by default the active global
-environment \code{.GlobalEnv}.}
+\item{envir}{R \code{environment} to save, by default the active global
+environment \code{globalenv()}.}
+
+\item{session_prefix}{\code{character}, default 'inProgress_' used to
+identify jamsession files distinct from other 'RData' files.}
+
+\item{session_suffix}{\code{character} default '.RData' used to define
+the filename extension.}
+
+\item{save_objectlist}{\code{logical} default TRUE, whether to save a character
+list of objects to a separate file, so they can be searched
+instead of loading the entire RData file for this information.}
 
 \item{verbose}{logical whether to print verbose output.}
 
 \item{...}{additional arguments passed to \code{base::save()}}
 
-\item{date}{the date string to use when naming the .RData file.
+\item{date}{\code{character} date string to use when naming the .RData file.
 By default the current date is used, called by \code{jamba::getDate()}.}
 }
 \description{
@@ -74,17 +84,13 @@ only the R objects stored in that environment are saved.
 However the R objects are saved as R objects, with no information
 about the source environment.
 
-By default this function will assign the value of \code{session}
-to \code{session} in the global environment, unless \code{assign_session=FALSE},
-in order to reinforce the active R session name, and which
-is shown by the R prompt by default, via calling \code{jamba::setPrompt()}.
-These changes are intended as visual reminders of the active R
-session.
+This function may assign the global variable 'session' to the
+name of the session loaded, but is not done by default
+due to  \code{assign_session=FALSE}.
 }
 \seealso{
 Other jamsession sessions: 
 \code{\link{grep_jamsessions}()},
-\code{\link{list_jamsessions}()},
 \code{\link{load_jamsession}()},
 \code{\link{show_session_versions}()}
 }

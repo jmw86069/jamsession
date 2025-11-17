@@ -298,7 +298,7 @@ refresh_functions <- function
 #'
 #' @param pkg `character` string indicating a package name.
 #'
-#' @family jamsession utilities
+#' @family jamsession internals
 #'
 #' @examples
 #' print_pkg_description("base")

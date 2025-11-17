@@ -6,7 +6,7 @@
 \usage{
 clean_jamsession_name(
   x,
-  remove_pattern = "[._'\\" /\\\\]+",
+  remove_pattern = "[-._'\\" /\\\\:]+",
   replacement = "_",
   verbose = FALSE,
   ...
@@ -23,6 +23,9 @@ a single character.}
 
 \item{...}{additional arguments are passed to \code{gsub()}.}
 }
+\value{
+\code{character} vector after adjusting input 'x'.
+}
 \description{
 Clean jamsession name prior to saving an output file
 }
@@ -32,3 +35,12 @@ string, and will replace unwanted characters with a fixed string,
 by default underscore \code{"_"}. The \code{remove_pattern} and the
 \code{replacement} are configurable if needed.
 }
+\seealso{
+Other jamsession internals: 
+\code{\link{fileInfo}()},
+\code{\link{list_functions}()},
+\code{\link{list_jamsessions}()},
+\code{\link{list_objects}()},
+\code{\link{print_pkg_description}()}
+}
+\concept{jamsession internals}

@@ -11,28 +11,34 @@ load_jamsession(
   envir = globalenv(),
   assign_session = TRUE,
   load_history = TRUE,
-  do_window_title = TRUE,
   do_prompt = TRUE,
+  do_window_title = TRUE,
   verbose = TRUE,
   ...
 )
 }
 \arguments{
-\item{session}{character string corresponding to the \code{"session"},
+\item{session}{\code{character} string corresponding to the \code{"session"},
 which is matched directly with the \code{"session"} column output from
-\code{grep_jamsessions()}, or \code{data.frame} output from \code{grep_jamsessions()}.}
+\code{grep_jamsessions()}, or \code{data.frame} output from \code{grep_jamsessions()}.
+This value can also match \code{rownames()} on \code{list_jamsessions()}
+so that it can include a specific 'save_date'.}
 
-\item{sessions_path}{character vector of one or more file paths to search
+\item{sessions_path}{\code{character} vector of one or more file paths to search
 for saved R sessions. When \code{NULL}, it uses the output from
 \code{jamsession_paths()$session}. This value is used only when
 \code{session} is a character vector, and is passed to
 \code{grep_jamsessions()}.}
 
-\item{save_date}{optional character string with a specific date to
-use when loading a session. This string is matched with
+\item{save_date}{optional \code{character} string with a specific date to
+use when loading a session. Note that the argument 'session' can accept
+this string as suffix, 'sessionname_savedate'.
+\itemize{
+\item This string is matched with
 the \code{"save_date"} returned by \code{list_jamsessions()}.
-When \code{save_date} is \code{NULL}, the most recent
-session is used, which is the default behavior.}
+\item When \code{save_date} is \code{NULL}, the most recent
+session is used, which is the default behavior.
+}}
 
 \item{envir}{\code{environment}, where \code{"environment" \%in\% class(envir)}.
 By default \code{envir} uses \code{globalenv()} which loads the R session
@@ -44,23 +50,21 @@ R objects in the R session file from overwriting R objects
 with the same name in the local R workspace. For example
 \verb{session_env=new.env();load_jamsession("New", envir=session_env)}.}
 
-\item{assign_session}{logical whether to assign \code{session}
-to the \code{parent.env()} which is typically the global environment
-\code{.GlobalEnv}.}
+\item{assign_session}{\code{logical} default TRUE, whether to assign \code{session}
+to the \code{parent.env()}, typically the global environment \code{globalenv()}.}
 
-\item{load_history}{logical whether to load the .Rhistory file for the
-R session, if available.}
+\item{load_history}{\code{logical} default TRUE, whether to load the '.Rhistory'
+file for the R session, if available.}
 
-\item{do_window_title}{logical whether to update the device options
-to define the title based upon the \code{session}. Currently when \code{TRUE},
-the options \code{quartz.options()} and \code{X11.options()} are defined,
-if possible.}
+\item{do_prompt}{\code{logical} default TRUE, whether to set the R prompt with
+\code{jamba::setPrompt()} to include the session name.}
 
-\item{do_prompt}{logical whether to run
-\code{jamba::setPrompt()} to update the R prompt to include the
-\code{session}.}
+\item{do_window_title}{\code{logical} default TRUE, whether to update the
+graphics device options to include the session name in the title.
+When \code{TRUE}, it calls \code{quartz.options()}, \code{X11.options()}, and
+\code{windows.options()} where available.}
 
-\item{verbose}{logical whether to print verbose output.}
+\item{verbose}{\code{logical} whether to print verbose output.}
 
 \item{...}{additional arguments are passed to \code{jamba::setPrompt()}.}
 }
@@ -101,7 +105,6 @@ so that it can be attached with \code{attach()}.
 \seealso{
 Other jamsession sessions: 
 \code{\link{grep_jamsessions}()},
-\code{\link{list_jamsessions}()},
 \code{\link{save_jamsession}()},
 \code{\link{show_session_versions}()}
 }
