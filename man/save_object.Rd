@@ -12,6 +12,7 @@ save_object(
   do_file_info = FALSE,
   object_suffix = ".RData",
   envir = globalenv(),
+  prefer_local = c("last", "first", "none"),
   verbose = TRUE,
   ...
 )
@@ -54,6 +55,17 @@ by default \code{".RData"}. This value should probably never change,
 but it is possible to change here.}
 
 \item{envir}{the \code{environment} from which to obtain the R object.}
+
+\item{prefer_local}{\code{character} string indicating whether to prefer saving
+to local directory \code{'.'} if it exists in the objects_path.
+In general, objects are intended to be saved centrally,
+with local path  as a last priority to be used when it is not
+possible to save to other paths as provided.
+\itemize{
+\item \code{'first'}: places the local path first in the priority.
+\item \code{'last'}: places the local path last in the priority.
+\item \code{'none'}: leaves the local path as-is.
+}}
 
 \item{verbose}{\code{logical} indicating whether to print verbose output.}
 

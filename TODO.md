@@ -1,5 +1,12 @@
 # jamsession TODO
 
+## 10dec2025
+
+* Add testthat unit tests for basic operations.
+* `refresh_functions()`
+
+   * Consider option to silence package load messages.
+
 ## 17nov2025
 
 * COMPLETE. Add `grep_functions()` for consistency, and utility.

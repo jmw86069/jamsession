@@ -1,3 +1,9 @@
+# version 0.0.7.900
+
+## Bug fixes
+
+* `save_object()` added missing argument 'prefer_local'.
+
 # version 0.0.6.900
 
 * Added dependencies: roxygen2, usethis, withr.

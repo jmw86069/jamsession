@@ -119,6 +119,14 @@
 #'    by default `".RData"`. This value should probably never change,
 #'    but it is possible to change here.
 #' @param envir the `environment` from which to obtain the R object.
+#' @param prefer_local `character` string indicating whether to prefer saving
+#'    to local directory `'.'` if it exists in the objects_path.
+#'    In general, objects are intended to be saved centrally,
+#'    with local path  as a last priority to be used when it is not
+#'    possible to save to other paths as provided.
+#'    * `'first'`: places the local path first in the priority.
+#'    * `'last'`: places the local path last in the priority.
+#'    * `'none'`: leaves the local path as-is.
 #' @param verbose `logical` indicating whether to print verbose output.
 #' @param ... additional arguments are ignored.
 #'
@@ -141,11 +149,15 @@ save_object <- function
  do_file_info=FALSE,
  object_suffix=".RData",
  envir=globalenv(),
+ prefer_local=c("last",
+    "first",
+    "none"),
  verbose=TRUE,
  ...)
 {
    ## Purpose is to save RData individual objects to files, versioned by date, so they
    ## can be recalled without having to load an entire R session.
+   prefer_local <- match.arg(prefer_local);
 
    ## To add description, the objectNotesList parameter gets saved to a description file
    ## after subjected to unlist().
